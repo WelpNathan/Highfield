@@ -241,7 +241,7 @@ body {
     transition: background-color 0.2s;
   }
 
-  /* registration form*/
+  /*/////////////////////////////////////////// registration form/////////////////////////////////////////*/
   .register {
     width: 300px;
     background-color: #ffffff;
@@ -271,6 +271,16 @@ body {
     background-color: #5C2483;
     color: #ffffff;
   }
+
+  .register form select{
+    width: 70%;
+    height: 50px;
+    border: 1px solid #dee0e4;
+    margin-bottom: 20px;
+    padding: 0 15px;
+    background-color: #dddada;
+  }
+
   .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
     width: 70%;
     height: 50px;

@@ -42,21 +42,39 @@
     <!-- end navigation bar -->
 
     <div class="title">
-            <h1>Highfield Education - Register</h1>
+            <h1>Register</h1>
     </div>
     <!-- main content -->
     <div class="mainContent">
-    <div class="section1">
-            <h2>Register</h2>
-            <p class="text1"> </p>
 
-            <img id="" alt="" src="">
+        <div class="register">
+            <form action="" method="post" autocomplete="off" id="registrationForm">
 
+                <label for="userType"><i class="fas fa-user"></i></label>
+                        <select id="userType" name="userType">
+                            <option value="learner">Choose Account Type</option>
+                            <option value="learner">Learner</option>
+                            <option value="invigilator">Invigilator</option>
+                        </select>
 
-            <p class="text2">
- </p>
+                <label for="email"><i class="fas fa-envelope"></i></label>
+                <input type="email" name="email" placeholder="Email" id="email" required>
+            
+                <label for="userpassword"><i class="fas fa-lock"></i></label>
+                <input type="password" name="userpassword" placeholder="Password" id="userpassword" required>
+
+                <label for="passwordConfirm"><i class="fas fa-lock"></i></label>
+                <input type="password" name="passwordConfirm" placeholder="Confirm Password" id="passwordConfirm" required>
+                
+                <input type="submit" value="Register" >
+                           
+    </form>
+ 
         </div>
-        </div>
+
+
+
+    </div>
     <!-- footer -->
 
 

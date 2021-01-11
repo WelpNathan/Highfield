@@ -1,10 +1,71 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Highfield Education - Exam Invigilation Software ";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Highfield Education - Exam Invigilation Software </title>
+
+    <!-- links and includes-->
+    <link href="css/mobile.css" rel="stylesheet" />
+    <link href="css/desktop.css" rel="stylesheet" media="only screen and (min-width : 720px)" />
+    <link href="css/bootstrap/bootstrap-grid.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <!--  Navigation Bar  -->
+
+        <div class="topnav">
+            <a href="index.html" class="active">
+                <img class="logo1" src="img/logo.PNG" alt="Highfield Education Logo">
+            </a>
+
+            <div id="myLinks">
+                <a href="index.html">Home</a>
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <a href="javascript:void(0);" class="webicon" onclick="topNavBar()">
+                <i class="fa fa-bars fa-2x"></i>
+            </a>
+            <a href="javascript:void(0);" class="icon" onclick="topNavBar()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <!-- end navigation bar -->
+
+        <div class="title">
+            <h1>Highfield Education - Exam Invigilation</h1>
+        </div>
+        <!-- main content -->
+        <div class="mainContent">
+            <div class="section1">
+                <h2>Home</h2>
+                <p class="text1"> </p>
+
+                <img id="" alt="" src="">
+
+
+                <p class="text2">
+                </p>
+            </div>
+        </div>
+        <!-- footer -->
+        <!-- end footer -->
+
+    </div>
+
+    <!-- Javascript links here -->
+    <script src="main.js"></script>
+
+</body>

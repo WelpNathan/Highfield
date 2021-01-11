@@ -1,0 +1,198 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;	
+    background-color: #ffffff;
+    width: 100%;
+  } 
+
+.container {   
+    width: 100%;   
+    min-width: 300px;
+    max-width: 600px;
+  }
+
+.errorMessages{
+  width: 100%;
+  float: left;
+  }
+  
+.error{
+    background-color: #5C2483;
+    color: #f1f1f1;
+    width: 80%;
+    Text-align: center;
+    font-weight: bold;
+    padding:5px 10px;
+    margin: auto;
+  }
+
+  .errorInputs{
+    color: #5C2483;
+    width: 100%;
+    Text-align: left;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: bold;
+    padding:5px 10px;
+    margin: 4px;
+  }
+
+  .error a{
+      text-decoration: underline;
+      color: white;
+      font-weight: bolder;
+  }
+
+  .errorMessages{
+    color: #5C2483;
+    width: 100%;
+    Text-align: left;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: bold;
+    padding:5px 10px;
+    margin: 4px;
+  }
+
+  .title{
+      width:100%;
+      float: left;
+  }
+  
+  .section{
+    width: 100%;
+    overflow: scroll;
+    height: 500px;
+  }
+
+
+
+
+  /*//////////////////////////////////////////header/////////////////////////////////////////*/
+  .header{
+      background-color: #ffffff; 
+      width: 100%;
+      float: left;    
+  }
+  
+  .logo1{
+      margin: auto;
+      width: 88%;
+  }
+
+ /*//////////////////////////////////////////navbar/////////////////////////////////////////*/
+ .topnav {
+  background-color: #5C2483;
+  position: relative;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav a.icon {
+  background: #5C2483;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.topnav a.webicon {
+  display: none;
+
+}
+
+.topnav a:hover {
+  background-color: #5C2483;
+  color: white;
+}
+
+/* //////////////////////////////////////main content//////////////////////////////////*/
+
+ 
+  .mainContent{
+      background-color: #f1f1f1;
+      Width: 100%;
+      float: left;
+      padding: 20px 12px 28px 12px;   
+  }
+ 
+  .text1{
+    width: 100%;
+    float: left;
+    padding: 14px;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 2px;
+  }
+ 
+  #about1{
+    width:90%;
+    padding: 8px;
+    float: left;
+    margin: 2px;
+  }
+
+    
+  .text2{
+    width: 100%;
+    float: left;
+    padding: 14px;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 1px;
+  }
+
+  .welcome{
+    width: 300px;
+    margin: 2px;
+    float: left;
+    font-weight: bold;
+  }
+
+  .welcome p{
+    float: left;
+    font-size: 20px;
+    padding: 2px 4px;
+    text-align: left;
+
+  }
+
+  .username{
+      font-weight: bold;
+      font-size: 16px;
+      float: left;
+      color: #5C2483;
+  }
+
+  .title{
+    width: 90%;
+    padding: 8px;
+    margin: 2px;
+  }
+
+  .title h1{
+    border-bottom: #009FE3 solid 3px;
+    padding: 2px;
+  }
+
+  #webEditBox{
+    display: none;
+  }
+  #passEditBox{
+    display: none;
+  }
+
+  .BoxMain{
+    width:100%;
+    float: left;
+  }

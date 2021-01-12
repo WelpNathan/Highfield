@@ -70,3 +70,11 @@ C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilator
 C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\ExamInvigilatorProject.pdb
 C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\ExamInvigilatorProject.genruntimeconfig.cache
 C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\ExamInvigilatorProject.csproj.CopyComplete
+C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\ExamInvigilatorProject.csproj.CoreCompileInputs.cache
+C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\ExamInvigilatorProject.MvcApplicationPartsAssemblyInfo.cache

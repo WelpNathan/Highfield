@@ -24,7 +24,8 @@ namespace ExamInvigilatorProject
             cnn.Open();
 
             string delete = "DELETE FROM dbo.tblLogins;";
-            string sql = "insert into dbo.tblLogins(Id, Email, FirstName, LastName, PasswordHash, PasswordSalt) VALUES(@Id, @email, @FirstName, @LastName, @PasswordHash, @PasswordSalt)";
+            string register = "INSERT INTO dbo.tblLogins(Id, Email, FirstName, LastName, PasswordHash, PasswordSalt) VALUES(@Id, @email, @FirstName, @LastName, @PasswordHash, @PasswordSalt)";
+            
 
             SqlCommand deleteTable = new SqlCommand(delete, cnn);
 
@@ -33,7 +34,7 @@ namespace ExamInvigilatorProject
             Guid guid = Guid.NewGuid();
             
 
-            using (SqlCommand cmd = new SqlCommand(sql, cnn))
+            using (SqlCommand cmd = new SqlCommand(register, cnn))
             {
                 // Create and set the parameters values 
                 cmd.Parameters.AddWithValue("@Id", guid);
@@ -85,5 +86,17 @@ namespace ExamInvigilatorProject
             return hashed;
         }
     
+
+
+        public void getEmail(string givenEmail, SqlConnection cnn)
+        {
+
+            string login = "SELECT * from dbo.tblLogins WHERE Email=@givenEmail";
+            using (SqlCommand email = new SqlCommand(login, cnn))
+            {
+                email.Parameters.AddWithValue("@givenEmail", givenEmail);
+            }
+
+        }
     }
 }

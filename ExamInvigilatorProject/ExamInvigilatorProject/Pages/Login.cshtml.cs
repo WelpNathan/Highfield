@@ -30,22 +30,21 @@ namespace ExamInvigilatorProject.Pages
 
         public void OnPost()
         {
+
+
             dbEdit editor = new dbEdit();
 
             var emailAddress = Request.Form["loginemail"];
             var password = Request.Form["loginpassword"];
 
-            string connetionString;
-            SqlConnection cnn;
-            connetionString = "Server = localhost; Database = exam_db; User Id = SA; Password = strong!123";
-            cnn = new SqlConnection(connetionString);
 
-            bool found = editor.checkEmail(emailAddress, cnn);
+
+            bool found = editor.checkEmail(emailAddress);
 
             if (found)
             {
-                string passwordHash = editor.getPasswordHash(emailAddress, cnn);
-                byte[] passwordSalt = editor.getPasswordSalt(emailAddress, cnn);
+                string passwordHash = editor.getPasswordHash(emailAddress);
+                byte[] passwordSalt = editor.getPasswordSalt(emailAddress);
 
 
 

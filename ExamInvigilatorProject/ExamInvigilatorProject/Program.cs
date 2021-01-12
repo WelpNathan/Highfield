@@ -37,7 +37,7 @@ namespace ExamInvigilatorProject
             cnn.Open();
 
             string delete = "DELETE FROM dbo.tblLogins;";
-            string register = "INSERT INTO dbo.tblLogins(Id, Email, FirstName, LastName, PasswordHash, PasswordSalt) VALUES(@Id, @email, @FirstName, @LastName, @PasswordHash, @PasswordSalt)";
+          /*  string register = "INSERT INTO dbo.tblLogins(Id, Email, FirstName, LastName, PasswordHash, PasswordSalt) VALUES(@Id, @email, @FirstName, @LastName, @PasswordHash, @PasswordSalt)";
 
 
             SqlCommand deleteTable = new SqlCommand(delete, cnn);
@@ -58,7 +58,7 @@ namespace ExamInvigilatorProject
                 cmd.Parameters.AddWithValue("@PasswordSalt", Convert.ToBase64String(salt));
 
                 cmd.ExecuteNonQuery();
-            }
+            }*/
             CreateHostBuilder(args).Build().Run();
 
         }
@@ -91,11 +91,16 @@ namespace ExamInvigilatorProject
 
 
 
+
+
+
+
     public class dbEdit
     {
+        static string connetionString = "Server = localhost; Database = exam_db; User Id = SA; Password = strong!123";
+        SqlConnection cnn = new SqlConnection(connetionString);
 
-
-        public bool checkEmail(string givenEmail, SqlConnection cnn)
+        public bool checkEmail(string givenEmail)
         {
             cnn.Open();
             string email = "SELECT Email FROM dbo.tblLogins WHERE Email=@givenEmail";
@@ -122,7 +127,7 @@ namespace ExamInvigilatorProject
 
 
 
-        public string getPasswordHash(string givenEmail, SqlConnection cnn)
+        public string getPasswordHash(string givenEmail)
         {
             cnn.Open();
             string hash = "";
@@ -145,7 +150,7 @@ namespace ExamInvigilatorProject
         }
 
 
-        public byte[] getPasswordSalt(string givenEmail, SqlConnection cnn)
+        public byte[] getPasswordSalt(string givenEmail)
         {
             cnn.Open();
             byte[] salted = new byte[128 / 8];
@@ -196,6 +201,33 @@ namespace ExamInvigilatorProject
             return hashed;
         }
 
+
+        public void register(string email, string firstName, string LastName, string password, byte[] salt)
+        {
+            string register = "INSERT INTO dbo.tblLogins(Id, Email, FirstName, LastName, PasswordHash, PasswordSalt) VALUES(@Id, @email, @FirstName, @LastName, @PasswordHash, @PasswordSalt)";
+
+
+            //SqlCommand deleteTable = new SqlCommand(delete, cnn);
+
+            //deleteTable.ExecuteNonQuery();
+
+            Guid guid = Guid.NewGuid();
+
+
+
+
+            using (SqlCommand cmd = new SqlCommand(register, cnn))
+            {
+                // Create and set the parameters values 
+                cmd.Parameters.AddWithValue("@Id", guid);
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@FirstName", firstName);
+                cmd.Parameters.AddWithValue("@LastName", LastName);
+                cmd.Parameters.AddWithValue("@PasswordHash", hashPassword(password, salt));
+                cmd.Parameters.AddWithValue("@PasswordSalt", Convert.ToBase64String(salt));
+                cmd.ExecuteNonQuery();
+            }
+        }
 
     }
 }

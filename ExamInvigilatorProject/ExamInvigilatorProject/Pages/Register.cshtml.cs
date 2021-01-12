@@ -20,5 +20,24 @@ namespace ExamInvigilatorProject.Pages
         public void OnGet()
         {
         }
+        public void OnPost()
+        {
+
+            dbEdit editor = new dbEdit();
+
+            var emailAddress = Request.Form["email"];
+            var userpassword = Request.Form["userpassword"];
+            var confirm = Request.Form["passwordConfirm"];
+            var firstName = Request.Form["firstName"];
+            var lastName = Request.Form["lastName"];
+
+            if(userpassword == confirm)
+            {
+                byte[] salt = editor.generateSalt();
+                editor.register(emailAddress, firstName, lastName, userpassword, salt);
+            }
+
+
+        }
     }
 }

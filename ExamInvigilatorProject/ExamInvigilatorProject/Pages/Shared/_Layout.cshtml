@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Highfield Education - Exam Invigilation Software </title>
+    <title>@ViewData ["Title"] - Highfield Education - Exam Invigilation </title>
 
     <!-- links and includes-->
-    <link href="wwroot/css/mobile.css" rel="stylesheet" />
-    <link href="wwroot/css/desktop.css" rel="stylesheet" media="only screen and (min-width : 720px)" />
-    <link href="wwroot/lib/bootstrap/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="css/mobile.css" rel="stylesheet" />
+    <link href="css/desktop.css" rel="stylesheet" media="only screen and (min-width : 720px)" />
+    <link href="~/lib/bootstrap/bootstrap-grid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 
 </head>
@@ -24,10 +23,10 @@
             </a>
 
             <div id="myLinks">
-                <a href="index.html">Home</a>
-                <a href="login.html">Login</a>
-                <a href="register.html">Register</a>
-                <a href="contact.html">Contact Us</a>
+                <a href="../index.html">Home</a>
+                <a href="../login.html">Login</a>
+                <a href="../register.html">Register</a>
+                <a href="../contact.html">Contact Us</a>
             </div>
 
             <a href="javascript:void(0);" class="webicon" onclick="topNavBar()">
@@ -46,7 +45,7 @@
         <!-- main content -->
         <div class="mainContent">
 
-            <h2>Home</h2>
+            @RenderBody()
 
 
         </div>
@@ -56,7 +55,10 @@
     </div>
 
     <!-- Javascript links here -->
-    <script src="main.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
 </body>
 </html>

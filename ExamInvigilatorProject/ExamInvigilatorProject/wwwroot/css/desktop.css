@@ -1,0 +1,28 @@
+.container {   
+    width: 100%;   
+    min-width: 720px;
+  } 
+
+  .footerItemRight{
+    margin-top: 70px;
+  }
+
+  .logo1{
+    margin: auto;
+    width: 25%;
+}
+  .topnav a.webicon {
+    background: #5C2483;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .topnav a.icon {
+    display: none;
+  }
+
+  .section1{
+    width: 35%;    
+  }

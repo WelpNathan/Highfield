@@ -23,7 +23,6 @@ C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInv
 C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\ExamInvigilatorProject.RazorCoreGenerate.cache
 C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
 C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\Index.cshtml.g.cs
-C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\Privacy.cshtml.g.cs
 C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
 C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
@@ -78,3 +77,11 @@ C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilator
 C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\ExamInvigilatorProject.csproj.CoreCompileInputs.cache
 C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\ExamInvigilatorProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\Login.cshtml.g.cs
+C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\Register.cshtml.g.cs

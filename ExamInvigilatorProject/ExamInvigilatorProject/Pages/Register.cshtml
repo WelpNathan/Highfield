@@ -18,33 +18,35 @@
 </head>
 
 <body>
-
     <div class="mainContent">
 
         <div class="register">
             <form action="" method="post" autocomplete="off" id="registrationForm">
 
-                <label for="userType"><i class="fas fa-user"></i></label>
-                <select id="userType" name="userType">
-                    <option value="learner">Choose Account Type</option>
-                    <option value="learner">Learner</option>
-                    <option value="invigilator">Invigilator</option>
-                </select>
 
-                <label for="email"><i class="fas fa-envelope"></i></label>
-                <input type="email" name="email" placeholder="Email" id="email" required>
+                    <select id="userType" name="userType">
+                        <option value="learner">Choose Account Type</option>
+                        <option value="learner">Learner</option>
+                        <option value="invigilator">Invigilator</option>
+                    </select>
 
-                <label for="firstName"><i class="fas fa-user"></i></label>
-                <input type="text" name="firstname" placeholder="First Name" id="firstName" required>
-                
-                <label for="surname"><i class="fas fa-user"></i></label>
-                <input type="text" name="surname" placeholder="Surnameame" id="surname" required>
-                
-                <label for="userpassword"><i class="fas fa-lock"></i></label>
-                <input type="password" name="userpassword" placeholder="Password" id="userpassword" required>
+                        
+                    <label for="firstName"><i class="fas fa-user"></i></label>
+                    <input type="text" name="firstname" placeholder="First Name" id="firstName" required>
+                        
+                    <label for="surname"><i class="fas fa-user"></i></label>
+                    <input type="text" name="surname" placeholder="Surname" id="surname" required>
+                        
+                    
+                    <label for="email"><i class="fas fa-envelope"></i></label>
+                    <input type="email" name="email" placeholder="Email" id="email" required>
+   
 
-                <label for="passwordConfirm"><i class="fas fa-lock"></i></label>
-                <input type="password" name="passwordConfirm" placeholder="Confirm Password" id="passwordConfirm" required>
+                    <label for="userpassword"><i class="fas fa-lock"></i></label>
+                    <input type="password" name="userpassword" placeholder="Password" id="userpassword" required>
+
+                    <label for="passwordConfirm"><i class="fas fa-lock"></i></label>
+                    <input type="password" name="passwordConfirm" placeholder="Confirm Password" id="passwordConfirm" required>
 
                 <input type="submit" value="Register">
 

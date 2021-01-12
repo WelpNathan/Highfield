@@ -146,8 +146,21 @@ body {
   }
 
   .startBtn{
-      
+      padding: 8px 16px;
+      font-size: 20px ;
+      color: white;
+      background-color: #353434;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: auto;
+      margin-top: 20px;
+      width: 320px;
+  }
 
+  .actionBtn{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
 
@@ -285,14 +298,12 @@ body {
   float: left;
   width: 40%;
   margin: 20px;
-  border: solid black 2px;
   padding: 16px;
 }
 .tableSection2{
   float: left;
   width: 40%;
   margin: 20px;
-  border: solid black 2px;
   padding: 16px;
 }
 
@@ -331,6 +342,13 @@ body {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: center;
+  height:35px;
+}
+
+table{
+  border: solid 2px #353434;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+  
 }
 
 #myLearners tr:nth-child(even){background-color: #f2f2f2;}

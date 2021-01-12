@@ -14407,6 +14407,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Student\\source\\repos\\CStorey86\\Highfield\\ExamInvigilatorProject\\ExamInvigilatorProject\\Pages\\Invigilator.cshtml",
+      "TargetPath": "Pages\\Invigilator.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Student\\source\\repos\\CStorey86\\Highfield\\ExamInvigilatorProject\\ExamInvigilatorProject\\Pages\\_ViewImports.cshtml",
       "TargetPath": "Pages\\_ViewImports.cshtml",
       "FileKind": "mvc"

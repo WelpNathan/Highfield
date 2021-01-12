@@ -145,6 +145,11 @@ body {
 
   }
 
+  .startBtn{
+      
+
+  }
+
 
   /*/////////////////////////////////////// login form///////////////////////////////////////////////////*/
   .login {
@@ -274,12 +279,76 @@ body {
     transition: background-color 0.2s;
   }
 
+  /* /////////////////////////////////////// Learner Tables ///////////////////////*/
 
+.tableSection1{
+  float: left;
+  width: 40%;
+  margin: 20px;
+  border: solid black 2px;
+  padding: 16px;
+}
+.tableSection2{
+  float: left;
+  width: 40%;
+  margin: 20px;
+  border: solid black 2px;
+  padding: 16px;
+}
 
+#activeLearners{
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#activeLearners td, #activeLearners th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#activeLearners tr:nth-child(even){background-color: #f2f2f2;}
+
+#activeLearners tr:hover {background-color: #ddd;}
+
+#activeLearners th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #009FE3;
+  color: white;
+  text-align: center;
+}
+
+#myLearners{
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#myLearners td, #myLearners th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#myLearners tr:nth-child(even){background-color: #f2f2f2;}
+
+#myLearners tr:hover {background-color: #ddd;}
+
+#myLearners th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #5C2483 ;
+  color: white;
+  text-align: center;
+}
 
   /* ///////////////////////////////////////footer///////////////////////*/
 .footer {
-    background-color: #5C2483;
+    background-color: #7e7e7e;
     width: 100%;
     float: left;
     margin-top: 20px;
@@ -292,3 +361,4 @@ body {
    padding-right: 40px;
    padding: 8px;
 }
+

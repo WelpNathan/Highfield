@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Pages\Invigilator.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Pages\Invigilator.html" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 

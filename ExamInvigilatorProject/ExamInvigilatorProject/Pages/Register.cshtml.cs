@@ -8,11 +8,11 @@ using Microsoft.Extensions.Logging;
 
 namespace ExamInvigilatorProject.Pages
 {
-    public class PrivacyModel : PageModel
+    public class RegisterModel : PageModel
     {
-        private readonly ILogger<PrivacyModel> _logger;
+        private readonly ILogger<RegisterModel> _logger;
 
-        public PrivacyModel(ILogger<PrivacyModel> logger)
+        public RegisterModel(ILogger<RegisterModel> logger)
         {
             _logger = logger;
         }

@@ -76,7 +76,7 @@ body {
   
   .logo1{
       margin: auto;
-      width: 88%;
+      width: 199px;
   }
 
  /*//////////////////////////////////////////navbar/////////////////////////////////////////*/
@@ -125,30 +125,6 @@ body {
       padding: 20px 12px 28px 12px;   
   }
  
-  
-
-  .welcome{
-    width: 300px;
-    margin: 2px;
-    float: left;
-    font-weight: bold;
-  }
-
-  .welcome p{
-    float: left;
-    font-size: 20px;
-    padding: 2px 4px;
-    text-align: left;
-
-  }
-
-  .username{
-      font-weight: bold;
-      font-size: 16px;
-      float: left;
-      color: #5C2483;
-  }
-
   .title{
     width: 90%;
     padding: 8px;
@@ -158,6 +134,7 @@ body {
   .title h1{
     border-bottom: #009FE3 solid 3px;
     padding: 2px;
+    
   }
 
   .section1 h2{
@@ -168,17 +145,10 @@ body {
 
   }
 
-  .formLine{
-    width: 80%;
-    float: left;
-    padding: 8px 16px;
-    margin: auto;
-    margin-top: 8px;
-    border: 2px solid black;
-  }
+
   /*/////////////////////////////////////// login form///////////////////////////////////////////////////*/
   .login {
-    width: 300px;
+    width: 50%;
     background-color: #ffffff;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
     margin: 20px auto;
@@ -303,5 +273,12 @@ body {
     width: 100%;
     float: left;
     margin-top: 20px;
-    color: #f1f1f1;
+
+}
+
+.footer p {
+   color: #f1f1f1;
+   text-align: right;
+   padding-right: 40px;
+   padding: 8px;
 }

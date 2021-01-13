@@ -54,8 +54,8 @@ namespace ExamInvigilatorProject.Pages
 
                 if (saltedPassword == passwordHash)
                 {
-                    //login successful!
                     success = true;
+                    Response.Redirect("LoggedIn/Invigilator");
                 }
                 else
                 {
@@ -66,5 +66,7 @@ namespace ExamInvigilatorProject.Pages
             attempts += 1;
 
         }
+
+
     }
 }

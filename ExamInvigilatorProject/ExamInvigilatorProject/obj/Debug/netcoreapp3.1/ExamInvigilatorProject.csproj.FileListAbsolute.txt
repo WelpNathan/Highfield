@@ -84,8 +84,10 @@ C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInv
 C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\Login.cshtml.g.cs
 C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\Register.cshtml.g.cs
-C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\Invigilator.cshtml.g.cs
 C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\Login.cshtml.g.cs
 C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\Register.cshtml.g.cs
 C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\LogedIn\Invigilator.cshtml.g.cs
 C:\Users\lukeg\Documents\GitHub\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\LogedIn\learner.cshtml.g.cs
+C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\LoggedIn\Exam.cshtml.g.cs
+C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\LoggedIn\Invigilator.cshtml.g.cs
+C:\Users\Student\Source\Repos\CStorey86\Highfield\ExamInvigilatorProject\ExamInvigilatorProject\obj\Debug\netcoreapp3.1\Razor\Pages\LoggedIn\learner.cshtml.g.cs

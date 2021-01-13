@@ -34,7 +34,7 @@ namespace ExamInvigilatorProject
             SqlConnection cnn;
             connetionString = "Server = localhost; Database = exam_db; User Id = SA; Password = strong!123";
             cnn = new SqlConnection(connetionString);
-            cnn.Open();
+            cnn.Open();         // need error message for exceptions - e.g. if connection can't be made load error page
 
             //string delete = "DELETE FROM dbo.tblLogins;";
           /*  string register = "INSERT INTO dbo.tblLogins(Id, Email, FirstName, LastName, PasswordHash, PasswordSalt) VALUES(@Id, @email, @FirstName, @LastName, @PasswordHash, @PasswordSalt)";

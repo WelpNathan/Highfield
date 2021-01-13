@@ -202,35 +202,37 @@ namespace ExamInvigilatorProject
         }
 
 
-        public void register(string email, string firstName, string LastName, string password, byte[] salt, char role)
+        public bool register(string email, string firstName, string LastName, string password, byte[] salt, char role)
         {
-            cnn.Open();
-            string register = "INSERT INTO dbo.tblLogins(Id, Email, FirstName, LastName, PasswordHash, PasswordSalt, Role, IsReady) VALUES(@Id, @email, @FirstName, @LastName, @PasswordHash, @PasswordSalt, @Role, @IsReady)";
-
-
-            //SqlCommand deleteTable = new SqlCommand(delete, cnn);
-
-            //deleteTable.ExecuteNonQuery();
-
-            Guid guid = Guid.NewGuid();
-
-
-
-
-            using (SqlCommand cmd = new SqlCommand(register, cnn))
+            try
             {
-                // Create and set the parameters values 
-                cmd.Parameters.AddWithValue("@Id", guid);
-                cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@FirstName", firstName);
-                cmd.Parameters.AddWithValue("@LastName", LastName);
-                cmd.Parameters.AddWithValue("@PasswordHash", hashPassword(password, salt));
-                cmd.Parameters.AddWithValue("@PasswordSalt", Convert.ToBase64String(salt));
-                cmd.Parameters.AddWithValue("@Role", role);
-                cmd.Parameters.AddWithValue("@IsReady", 0);
-                cmd.ExecuteNonQuery();
+                cnn.Open();
+                string register = "INSERT INTO dbo.tblLogins(Id, Email, FirstName, LastName, PasswordHash, PasswordSalt, Role, IsReady) VALUES(@Id, @email, @FirstName, @LastName, @PasswordHash, @PasswordSalt, @Role, @IsReady)";
+
+                Guid guid = Guid.NewGuid();
+
+                using (SqlCommand cmd = new SqlCommand(register, cnn))
+                {
+                    // Create and set the parameters values 
+                    cmd.Parameters.AddWithValue("@Id", guid);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@FirstName", firstName);
+                    cmd.Parameters.AddWithValue("@LastName", LastName);
+                    cmd.Parameters.AddWithValue("@PasswordHash", hashPassword(password, salt));
+                    cmd.Parameters.AddWithValue("@PasswordSalt", Convert.ToBase64String(salt));
+                    cmd.Parameters.AddWithValue("@Role", role);
+                    cmd.Parameters.AddWithValue("@IsReady", 0);
+                    cmd.ExecuteNonQuery();
+                }
+                cnn.Close();
+                return true;
             }
-            cnn.Close();
+            catch (SqlException e)
+            {
+                return false;
+            }
+            
+           
         }
 
     }

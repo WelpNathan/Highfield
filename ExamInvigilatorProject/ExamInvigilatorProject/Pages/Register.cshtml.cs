@@ -22,9 +22,9 @@ namespace ExamInvigilatorProject.Pages
         }
         public void OnPostRegister()
         {
-
+            bool success = false;
             dbEdit editor = new dbEdit();
-            char role = 'L';
+            char role = 'C';
             var emailAddress = Request.Form["email"];
             var userpassword = Request.Form["userpassword"];
             var confirm = Request.Form["passwordConfirm"];
@@ -44,7 +44,8 @@ namespace ExamInvigilatorProject.Pages
             if(userpassword == confirm)
             {
                 byte[] salt = editor.generateSalt();
-                editor.register(emailAddress, firstName, lastName, userpassword, salt, role);
+                success = editor.register(emailAddress, firstName, lastName, userpassword, salt, role);
+                
             }
 
 

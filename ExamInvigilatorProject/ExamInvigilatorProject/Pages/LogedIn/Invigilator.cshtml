@@ -1,0 +1,94 @@
+﻿@page
+@model InvigilatorModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Highfield Education - Exam Invigilation Software Login </title>
+
+    <!-- links and includes-->
+    <link href="css/mobile.css" rel="stylesheet" />
+    <link href="css/desktop.css" rel="stylesheet" media="only screen and (min-width : 720px)" />
+    <link href="css/bootstrap/bootstrap-grid.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+
+</head>
+
+<body>
+
+
+    <div class="mainContent">
+
+
+        <h2>Invigilator logged in</h2>
+
+        <div class="tableSection1">
+            <h3>List of ready learners</h3>
+            <table id="activeLearners">
+                    <tr>
+                        <th>Student Name</td>
+                        <th>Time Logged In</td>
+                        <th>Add</th>
+                    </tr>
+                    <tr>
+                        <td>Student Name 1</td>
+                        <td>12/01/2021 17:04</td>
+                        <td><i class="fas fa-arrow-alt-circle-right"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Student Name 2</td>
+                        <td>12/01/2021 17:08</td>
+                        <td><i class="fas fa-arrow-alt-circle-right"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Student Name 3</td>
+                        <td>12/01/2021 17:10</td>
+                        <td><i class="fas fa-arrow-alt-circle-right"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tableSection2">
+            <h3>My Observation List</h3>
+            <table id="myLearners">
+                <tr> 
+                    <th></td>
+                    <th>Student Name</th>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-arrow-alt-circle-left"></i></td>
+                    <td>Student Name 4</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+                
+        </div>
+
+        <div class="actionBtn">
+            <button class="startBtn">Start Invigilation</button>
+        </div>
+
+        
+
+
+
+    </div>
+
+
+</body>

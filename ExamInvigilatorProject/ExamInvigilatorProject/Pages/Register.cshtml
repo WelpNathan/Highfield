@@ -1,5 +1,5 @@
 ﻿@page
-@model LoginModel
+@model RegisterModel
 @{
     ViewData["Title"] = "Register";
 }
@@ -21,7 +21,7 @@
     <div class="mainContent">
 
         <div class="register">
-            <form action="" method="post" autocomplete="off" id="registrationForm">
+            <form asp-page-handler="register" method="post" autocomplete="off">
 
 
                     <select id="userType" name="userType">

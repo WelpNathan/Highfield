@@ -1,4 +1,4 @@
-@page
+﻿@page
 @model LoginModel
 @{
     ViewData["Title"] = "Login";
@@ -22,7 +22,7 @@
     <div class="mainContent">
         <div class="login">
             <h1>@ViewData["Title"]</h1>
-            <form action="" method="post" autocomplete="off">
+            <form asp-page-handler="login" method="post" autocomplete="off">
                 <label for="loginemail"><i class="fas fa-envelope"></i></label>
                 <input type="email" name="loginemail" placeholder="Email" id="loginemail" required>
 

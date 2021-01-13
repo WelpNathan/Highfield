@@ -36,7 +36,7 @@ namespace ExamInvigilatorProject
             cnn = new SqlConnection(connetionString);
             cnn.Open();
 
-            string delete = "DELETE FROM dbo.tblLogins;";
+            //string delete = "DELETE FROM dbo.tblLogins;";
           /*  string register = "INSERT INTO dbo.tblLogins(Id, Email, FirstName, LastName, PasswordHash, PasswordSalt) VALUES(@Id, @email, @FirstName, @LastName, @PasswordHash, @PasswordSalt)";
 
 
@@ -202,9 +202,10 @@ namespace ExamInvigilatorProject
         }
 
 
-        public void register(string email, string firstName, string LastName, string password, byte[] salt)
+        public void register(string email, string firstName, string LastName, string password, byte[] salt, char role)
         {
-            string register = "INSERT INTO dbo.tblLogins(Id, Email, FirstName, LastName, PasswordHash, PasswordSalt) VALUES(@Id, @email, @FirstName, @LastName, @PasswordHash, @PasswordSalt)";
+            cnn.Open();
+            string register = "INSERT INTO dbo.tblLogins(Id, Email, FirstName, LastName, PasswordHash, PasswordSalt, Role, IsReady) VALUES(@Id, @email, @FirstName, @LastName, @PasswordHash, @PasswordSalt, @Role, @IsReady)";
 
 
             //SqlCommand deleteTable = new SqlCommand(delete, cnn);
@@ -225,8 +226,11 @@ namespace ExamInvigilatorProject
                 cmd.Parameters.AddWithValue("@LastName", LastName);
                 cmd.Parameters.AddWithValue("@PasswordHash", hashPassword(password, salt));
                 cmd.Parameters.AddWithValue("@PasswordSalt", Convert.ToBase64String(salt));
+                cmd.Parameters.AddWithValue("@Role", role);
+                cmd.Parameters.AddWithValue("@IsReady", 0);
                 cmd.ExecuteNonQuery();
             }
+            cnn.Close();
         }
 
     }

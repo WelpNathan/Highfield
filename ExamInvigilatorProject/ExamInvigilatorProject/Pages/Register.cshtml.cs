@@ -20,21 +20,31 @@ namespace ExamInvigilatorProject.Pages
         public void OnGet()
         {
         }
-        public void OnPost()
+        public void OnPostRegister()
         {
 
             dbEdit editor = new dbEdit();
-
+            char role = 'L';
             var emailAddress = Request.Form["email"];
             var userpassword = Request.Form["userpassword"];
             var confirm = Request.Form["passwordConfirm"];
             var firstName = Request.Form["firstName"];
-            var lastName = Request.Form["lastName"];
+            var lastName = Request.Form["surname"];
+            var roled = Request.Form["userType"];
+
+            if(roled == "learner")
+            {
+                role = 'C';
+            }
+            else if (roled == "invigilator")
+            {
+                role = 'I';
+            }
 
             if(userpassword == confirm)
             {
                 byte[] salt = editor.generateSalt();
-                editor.register(emailAddress, firstName, lastName, userpassword, salt);
+                editor.register(emailAddress, firstName, lastName, userpassword, salt, role);
             }
 
 

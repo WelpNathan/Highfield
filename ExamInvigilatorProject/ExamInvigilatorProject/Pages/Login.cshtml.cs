@@ -28,7 +28,7 @@ namespace ExamInvigilatorProject.Pages
 
         }
 
-        public void OnPost()
+        public void OnPostLogin()
         {
 
 

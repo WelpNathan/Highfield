@@ -55,7 +55,16 @@ namespace ExamInvigilatorProject.Pages
                 if (saltedPassword == passwordHash)
                 {
                     success = true;
-                    Response.Redirect("LoggedIn/Invigilator");
+                    string role = editor.getRole(emailAddress);
+                    if (role == "I")
+                    {
+                        Response.Redirect("LoggedIn/Invigilator");
+                    }
+                    else
+                    {
+                        Response.Redirect("LoggedIn/Learner");
+                        //Student redirect.
+                    }
                 }
                 else
                 {

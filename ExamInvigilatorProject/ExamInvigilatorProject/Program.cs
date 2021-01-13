@@ -235,6 +235,30 @@ namespace ExamInvigilatorProject
            
         }
 
+        public string getRole(string givenEmail)
+        {
+            cnn.Open();
+            string roled = "C";
+            string role = "SELECT Role FROM dbo.tblLogins WHERE Email = @givenEmail";
+            using (SqlCommand cmd = new SqlCommand(role, cnn))
+            {
+                cmd.Parameters.AddWithValue("@givenEmail", givenEmail);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        roled = reader["Role"].ToString();
+
+                    }
+
+                }
+            }
+            cnn.Close();
+            return roled;
+
+
+        }
+
     }
 }
 

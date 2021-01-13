@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Text;
+using System.Collections;
 
 namespace ExamInvigilatorProject
 {
@@ -259,6 +260,83 @@ namespace ExamInvigilatorProject
 
         }
 
+        public void logLogin(string givenEmail)
+        {
+            cnn.Open();
+            string id = "";
+            string sql = "SELECT Id FROM dbo.tblLogins WHERE Email = @givenEmail";
+            using (SqlCommand cmd = new SqlCommand(sql, cnn))
+            {
+                cmd.Parameters.AddWithValue("@givenEmail", givenEmail);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        id = reader["Id"].ToString();
+
+                    }
+
+                }
+            }
+            DateTime time = DateTime.Now;
+            Guid guid = Guid.Empty;
+            guid = new Guid(id);
+            string sqlFormattedDate = time.ToString("yyyy-MM-dd HH:mm:ss.fff");
+
+            sql = "INSERT INTO dbo.tblLoginLogs(AccountId, Date) VALUES(@AccountId, @Date)";
+            using (SqlCommand cmd = new SqlCommand(sql, cnn))
+            {
+                cmd.Parameters.AddWithValue("@AccountId", guid);
+                cmd.Parameters.AddWithValue("@Date", time);
+                cmd.ExecuteNonQuery();
+            }
+            cnn.Close();
+        }
+
+
+        public string[] getName(Guid guid)
+        {
+            cnn.Open();
+            string[] name = new string[2];
+            string sql = "SELECT Email FROM dbo.tblLogins WHERE Id = @Id";
+            using (SqlCommand cmd = new SqlCommand(sql, cnn))
+            {
+                cmd.Parameters.AddWithValue("@Id", guid);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        name[0] = reader["FirstName"].ToString();
+                        name[1] = reader["LastName"].ToString();
+
+                    }
+
+                }
+            }
+            cnn.Close();
+            return name;
+        }
+
+
+        public ArrayList getAllIds()
+        {
+            cnn.Open();
+            ArrayList ids = new ArrayList();
+            string sql = "SELECT AccountId FROM dbo.tblLoginLogs";
+            using (SqlCommand cmd = new SqlCommand(sql, cnn))
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ids.Add(reader["AccountId"].ToString());
+                    }
+
+                }
+            }
+            cnn.Close();
+            return ids;
+        }
     }
 }
 

@@ -2,6 +2,9 @@
 @model InvigilatorModel
 @{
     ViewData["Title"] = "Logged In - Invigilator";
+    Model.ids = Model.editor.getAllIds();
+    string hello = "hello";
+   
 }
 
 <head>
@@ -33,7 +36,7 @@
                         <th>Add</th>
                     </tr>
                     <tr>
-                        <td>Student Name 1</td>
+                        <td>@Model.editor.getName((Guid)Model.ids[Model.noOfNames++])</td>
                         <td>12/01/2021 17:04</td>
                         <td><i class="fas fa-arrow-alt-circle-right"></i></td>
                     </tr>

@@ -22,14 +22,28 @@
     <div class="mainContent">
         <div class="login">
             <h1>@ViewData["Title"]</h1>
-            <form asp-page-handler="login" method="post" autocomplete="off">
-                <label for="loginemail"><i class="fas fa-envelope"></i></label>
-                <input type="email" name="loginemail" placeholder="Email" id="loginemail" required>
 
+            <form asp-page-handler="login" method="post" autocomplete="off">
+
+                @{
+                    if (!Model.success && Model.attempts > 0)
+                    {
+                        <label for="loginemail"><i class="fas fa-envelope"></i></label>
+                        <input type="email" name="loginemail" placeholder="Email or password are incorrect" id="loginemail" required>
+                    }
+                    else
+                    {
+                        <label for="loginemail"><i class="fas fa-envelope"></i></label>
+                        <input type="email" name="loginemail" placeholder="Email" id="loginemail" required>
+                    }
+
+                }
                 <label for="loginpassword"><i class="fas fa-lock"></i></label>
                 <input type="password" name="loginpassword" placeholder="Password" id="loginpassword" required>
 
                 <input type="submit" value="Login">
+
+
             </form>
 
         </div>

@@ -14,7 +14,8 @@ namespace ExamInvigilatorProject.Pages
 {
     public class LoginModel : PageModel
     {
-
+        public bool success = false;
+        public int attempts = 0;
 
         private readonly ILogger<LoginModel> _logger;
 
@@ -54,12 +55,15 @@ namespace ExamInvigilatorProject.Pages
                 if (saltedPassword == passwordHash)
                 {
                     //login successful!
+                    success = true;
                 }
                 else
                 {
                     //login failed.
+                    attempts += 1;
                 }
             }
+            attempts += 1;
 
         }
     }

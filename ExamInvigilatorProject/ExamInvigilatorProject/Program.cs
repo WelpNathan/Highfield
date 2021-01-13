@@ -227,7 +227,7 @@ namespace ExamInvigilatorProject
                 cnn.Close();
                 return true;
             }
-            catch (SqlException e)
+            catch (SqlException)
             {
                 return false;
             }

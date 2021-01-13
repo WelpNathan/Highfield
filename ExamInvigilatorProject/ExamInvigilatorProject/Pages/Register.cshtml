@@ -24,29 +24,35 @@
             <form asp-page-handler="register" method="post" autocomplete="off">
 
 
-                    <select id="userType" name="userType">
-                        <option value="learner">Choose Account Type</option>
-                        <option value="learner">Learner</option>
-                        <option value="invigilator">Invigilator</option>
-                    </select>
+                <select id="userType" name="userType">
+                    <option value="learner">Choose Account Type</option>
+                    <option value="learner">Learner</option>
+                    <option value="invigilator">Invigilator</option>
+                </select>
 
-                        
-                    <label for="firstName"><i class="fas fa-user"></i></label>
-                    <input type="text" name="firstname" placeholder="First Name" id="firstName" required>
-                        
-                    <label for="surname"><i class="fas fa-user"></i></label>
-                    <input type="text" name="surname" placeholder="Surname" id="surname" required>
-                        
-                    
+
+                <label for="firstName"><i class="fas fa-user"></i></label>
+                <input type="text" name="firstname" placeholder="First Name" id="firstName" required>
+
+                <label for="surname"><i class="fas fa-user"></i></label>
+                <input type="text" name="surname" placeholder="Surname" id="surname" required>
+
+                @if (Model.success)
+                {
                     <label for="email"><i class="fas fa-envelope"></i></label>
                     <input type="email" name="email" placeholder="Email" id="email" required>
-   
 
-                    <label for="userpassword"><i class="fas fa-lock"></i></label>
-                    <input type="password" name="userpassword" placeholder="Password" id="userpassword" required>
+                }
+                else
+                {
+                    <label for="email"><i class="fas fa-envelope"></i></label>
+                    <input type="email" name="email" placeholder="Email already in use!" id="email" required>
+                }
+                <label for="userpassword"><i class="fas fa-lock"></i></label>
+                <input type="password" name="userpassword" placeholder="Password" id="userpassword" required>
 
-                    <label for="passwordConfirm"><i class="fas fa-lock"></i></label>
-                    <input type="password" name="passwordConfirm" placeholder="Confirm Password" id="passwordConfirm" required>
+                <label for="passwordConfirm"><i class="fas fa-lock"></i></label>
+                <input type="password" name="passwordConfirm" placeholder="Confirm Password" id="passwordConfirm" required>
 
                 <input type="submit" value="Register">
 

@@ -10,6 +10,8 @@ namespace ExamInvigilatorProject.Pages
 {
     public class RegisterModel : PageModel
     {
+
+        public bool success = true;
         private readonly ILogger<RegisterModel> _logger;
 
         public RegisterModel(ILogger<RegisterModel> logger)
@@ -22,7 +24,6 @@ namespace ExamInvigilatorProject.Pages
         }
         public void OnPostRegister()
         {
-            bool success = false;
             dbEdit editor = new dbEdit();
             char role = 'C';
             var emailAddress = Request.Form["email"];

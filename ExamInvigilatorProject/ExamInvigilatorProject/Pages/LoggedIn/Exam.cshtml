@@ -1,0 +1,80 @@
+﻿@page
+@model ExamModel
+@{
+    ViewData["Title"] = "Exam";
+}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Highfield Education - Exam Invigilation Software Login </title>
+
+    <!-- links and includes-->
+    <link href="css/mobile.css" rel="stylesheet" />
+    <link href="css/desktop.css" rel="stylesheet" media="only screen and (min-width : 720px)" />
+    <link href="css/bootstrap/bootstrap-grid.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+
+</head>
+
+<body>
+
+
+    <div class="mainContent">
+
+    <div class="mainContent">
+
+        <div class="leftPanel">
+            <div class="leftPanelViews">
+
+                <div class="viewBoxSmall">
+                    <i class="fas fa-user-graduate fa-8x"></i>
+                </div>
+                <div class="viewBoxSmall">
+                    <i class="fas fa-user-graduate fa-8x"></i>
+                </div>
+                <div class="viewBoxSmall">
+                    <i class="fas fa-user-graduate fa-8x"></i>
+                </div>
+                <div class="viewBoxSmall">
+                    <i class="fas fa-user-graduate fa-8x"></i>
+                </div>       
+
+            </div>
+
+            <!-------------------------------------------------- Buttons -------------------------------------------------------->
+            <div class="actionBtn">
+                <button class="startBtn">Start Exam</button>
+
+                <button class="endBtn">End Exam </button> <!-- only shown if exam has started, otherwise show start button -->
+            </div>
+
+            <div class="timer">
+                    <!-- space here for countdown timer for exam-->
+            </div>
+        </div>
+        <div class="rightPanel">
+            <div class="rightPanelMain">
+
+            </div>
+            <div class="rightPanelOptions">
+                <div class="rightPanelOptionItems">
+                    <button class="addNotes">Add Notes</button> <!-- If no notes exist yet, show add notes button -->
+
+                    <button class="editNotes">Edit Notes</button>   <!-- This button will need to be  coded so that if a notes record already exists, edit is shown instead of add: change css display: none etc.-->
+                </div>
+
+                <div class="rightPanelOptionItems">
+                    <button class="mute">Mute/Unmute</button> <!-- optional addition - mute/unmute microphone to chat with the selected person-->
+                </div>
+
+                <div class="rightPanelOptionItems">
+                    <button class="endforThis">End for this Learner</button> <!-- End Exam For This Learner-->
+                </div>
+
+            </div>
+            
+        </div>
+   </div>
+
+</body>

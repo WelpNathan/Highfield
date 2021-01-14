@@ -384,7 +384,7 @@ namespace ExamInvigilatorProject
         {
             cnn.Open();
             string[] name = new string[2];
-            string sql = "SELECT Email FROM dbo.tblLogins WHERE Id = @Id";
+            string sql = "SELECT FirstName, LastName FROM dbo.tblLogins WHERE Id = @Id";
             using (SqlCommand cmd = new SqlCommand(sql, cnn))
             {
                 cmd.Parameters.AddWithValue("@Id", guid);

@@ -38,6 +38,36 @@ navHighlight('.mainNav ul li a', 'index.html', 'current');
 })();
 
 
+//on click of learner "ready" button: grant permission to view camera and screen
+
+
+
+
+
+//grant camera and mic permissions.
+const permissionsNames = [
+    "camera",
+    "microphone",
+]
+
+const getAllPermissions = async () => {
+    const allPermissions = []
+    // We use Promise.all to wait until all the permission queries are resolved
+    await Promise.all(
+        permissionsNames.map(async permissionName => {
+            try {
+                let permission
+                permission = await navigator.permissions.query({ name: permissionName })
+                console.log(permission)
+                allPermissions.push({ permissionName, state: permission.state })
+            }
+            catch (e) {
+                allPermissions.push({ permissionName, state: 'error', errorMessage: e.toString() })
+            }
+        })
+    )
+    return allPermissions
+}
 
 
 

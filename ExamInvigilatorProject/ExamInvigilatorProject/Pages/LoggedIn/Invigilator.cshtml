@@ -47,11 +47,16 @@
             i++;
         }
         -->
-                <tr>
-                    <td>@Model.editor.getName((Guid)Model.ids[Model.noOfNames++])</td>
-                    <td>12/01/2021 17:04</td>
-                    <td><i class="fas fa-arrow-alt-circle-right"></i></td>
-                </tr>
+                @foreach (var name in Model.getNames())
+                {
+                    <tr>
+
+                        <td>@name[0] @name[1]</td>
+                        <td>12/01/2021 17:04</td>
+                        <td><i class="fas fa-arrow-alt-circle-right"></i></td>
+
+                    </tr>
+                }
                 <tr>
                     <td>Student Name 2</td>
                     <td>12/01/2021 17:08</td>

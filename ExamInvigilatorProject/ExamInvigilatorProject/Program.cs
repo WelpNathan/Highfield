@@ -384,7 +384,7 @@ namespace ExamInvigilatorProject
         {
             cnn.Open();
             string[] name = new string[2];
-            string sql = "SELECT Email FROM dbo.tblLogins WHERE Id = @Id";
+            string sql = "SELECT FirstName, LastName FROM dbo.tblLogins WHERE Id = @Id";
             using (SqlCommand cmd = new SqlCommand(sql, cnn))
             {
                 cmd.Parameters.AddWithValue("@Id", guid);
@@ -404,10 +404,10 @@ namespace ExamInvigilatorProject
         }
 
 
-        public ArrayList getAllIds()
+       public List<Guid> getAllIds()
         {
             cnn.Open();
-            ArrayList ids = new ArrayList();
+            List<Guid> ids = new List<Guid>();
             string sql = "SELECT AccountId FROM dbo.tblLoginLogs";
             using (SqlCommand cmd = new SqlCommand(sql, cnn))
             {
@@ -415,7 +415,9 @@ namespace ExamInvigilatorProject
                 {
                     while (reader.Read())
                     {
-                        ids.Add(reader["AccountId"].ToString());
+                        string temp = reader["AccountId"].ToString();
+                        Guid guid = new Guid(temp);
+                        ids.Add(guid);
                     }
 
                 }

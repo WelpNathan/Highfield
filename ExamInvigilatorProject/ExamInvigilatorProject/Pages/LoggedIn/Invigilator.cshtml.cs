@@ -16,7 +16,7 @@ namespace ExamInvigilatorProject.Pages
         public string test = "test";
         public int noOfNames = 0;
         public dbEdit editor = new dbEdit();
-        public ArrayList ids;
+        public List<Guid> ids;
 
         private readonly ILogger<InvigilatorModel> _logger;
 
@@ -27,6 +27,18 @@ namespace ExamInvigilatorProject.Pages
 
         public void OnGet()
         {
+
+        }
+        
+        public List<string[]> getNames()
+        {
+            List<string[]> names = new List<string[]>();
+            ids = editor.getAllIds();
+            for (int i = 0; i < ids.Count; i++)
+            {
+                names.Add(editor.getName(ids[i]));
+            }
+            return names;
 
         }
 

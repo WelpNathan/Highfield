@@ -11,9 +11,8 @@
     <title>@ViewData["Title"] </title>
 
     <!-- links and includes-->
-    <!-- links and includes-->
-    <link href="../../css/styles.css" rel="stylesheet" />
-    <link href="../../lib/css/bootstrap/css/dist/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="../../wwwroot/css/styles.css" rel="stylesheet" />
+    <link href="../..//wwwroot/lib/css/bootstrap/css/dist/bootstrap-grid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 
 </head>
@@ -75,12 +74,32 @@
                 </div>
 
                 <div class="rightPanelOptionItems">
-                    <button class="endforThis">End for this Learner</button> <!-- End Exam For This Learner-->
+                    <button onclick="notesOn()" class="endforThis">End for this Learner</button> <!-- End Exam For This Learner-->
                 </div>
 
             </div>
             
         </div>
+
+        <div class="overlay">
+            <!-- notes page will load as overlay when clicked -->
+            <div class="notesForm">
+            <h1>Notes</h1>
+                <hr>
+            <form>
+                <textarea name="notesText" placeholder="Type Notes here" wrap="hard"></textarea>
+                
+                <div class="addFiles"><input type="file"></div>
+                
+                <div id="notesMessage"><p>Notes Saved</p></div>
+
+                <input type="submit" value="Save">
+                <button onclick="notesOdd()" id="exitNotes">Exit</button>
+            </form>
+        </div>
+        </div>
+
+
    </div>
 
 </body>

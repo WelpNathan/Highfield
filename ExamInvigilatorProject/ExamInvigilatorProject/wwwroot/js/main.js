@@ -75,6 +75,15 @@ const getAllPermissions = async () => {
 
 
 
+// notes overlay
+function notesOn() {
+  document.getElementById("overlay").style.display = "block";
+}
+
+function notesOff() {
+  document.getElementById("overlay").style.display = "none";
+}
+
 
 
 

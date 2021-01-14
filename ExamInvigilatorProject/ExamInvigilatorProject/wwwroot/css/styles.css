@@ -396,8 +396,8 @@ table{
     background-color: #353434 ;
   }
   .viewBoxSmall{
-    width: 150px;
-    height: 150px;
+    width: 135px;
+    height: 120px;
     margin: 10px;
     padding: 8px;
     float: left;
@@ -483,3 +483,134 @@ table{
     display: none;
 
   }
+
+  /* /////////////////////////////////// Notes Form overlay //////////////////////////////////////////*/
+  #notesOverlay{
+    display: none;
+  }
+
+  .notesForm {
+    width: 520px;
+    background-color: #ffffff;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    margin: 10px auto;
+    font-family: Arial, Helvetica, sans-serif;	
+  }
+
+  .notesForm h1 {
+    text-align: center;
+    color: #353434;
+    font-size: 24px;
+    padding: 20px 0 0 0;
+  }
+
+  .notesForm hr{
+    width: 480px;
+    height:2px;
+    background-color: #009FE3;
+    border-width:0;
+    color:#009FE3;
+  }
+
+
+  .notesForm form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    background-color: #ffffff;
+  }
+
+  .notesForm form textarea {
+    width: 480px;
+    height: 200px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    word-wrap:normal;
+    overflow: scroll;
+  }
+
+  .notesForm form input[type="file"] {
+    width: 480px;
+    height: 50px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    float: left;
+  }
+  .addFiles{
+    width: 100%;
+    height: 60px;
+    margin: 10px;
+    padding: 10px;
+    float: left;
+  }
+  .notesForm form label {
+    width: 120px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .notesForm form input[type="submit"] {
+    width: 100px;
+    padding: 15px;
+    margin: 20px 10px 10px 10px;
+    background-color: #009FE3;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    color: #ffffff;
+    transition: background-color 0.2s;
+  }
+  .notes form input[type="submit"]:hover {
+  background-color: #066b96;
+    transition: background-color 0.2s;
+  }
+
+  #exitNotes{
+    width: 100px;
+    padding: 15px;
+    margin: 20px 10px 10px 10px;
+    background-color: #009FE3;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    color: #ffffff;
+    transition: background-color 0.2s;
+  }
+
+  #exitNotes[type="submit"]:hover {
+    background-color: #066b96;
+      transition: background-color 0.2s;
+    }
+
+    .exitNotes{
+      float: left;
+      width: 480px;
+    }
+    
+    #notesMessage{
+      display: block;
+      color: #5C2483;
+      font-weight: bold;
+      font-style: italic;
+      width: 420px;
+      text-align: center;
+      padding: 2px;
+      margin: 2px;
+    }
+
+  
+
+  

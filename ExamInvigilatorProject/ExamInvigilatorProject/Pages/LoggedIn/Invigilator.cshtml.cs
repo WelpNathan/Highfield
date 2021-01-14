@@ -29,6 +29,18 @@ namespace ExamInvigilatorProject.Pages
         {
 
         }
+        
+        public List<string[]> getNames()
+        {
+            List<string[]> names = new List<string[]>();
+            ids = editor.getAllIds();
+            for (int i = 0; i < ids.Count; i++)
+            {
+                names.Add(editor.getName(ids[i]));
+            }
+            return names;
+
+        }
 
       
         

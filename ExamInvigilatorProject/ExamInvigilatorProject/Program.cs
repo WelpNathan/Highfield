@@ -130,14 +130,18 @@ namespace ExamInvigilatorProject
 
             // create session id
             var cookieAuthCode = Guid.NewGuid();
-            
+
+            // get time of session start.
+            DateTime time = DateTime.Now;
+            string sqlFormattedDate = time.ToString("yyyy-MM-dd HH:mm:ss.fff");
             // add into login sessions
             cnn.Open();
-            const string email = "INSERT INTO dbo.tblLoginSessions(AccountId, SessionId) VALUES(@AccountId, @SessionId)";
+            const string email = "INSERT INTO dbo.tblLoginSessions(AccountId, SessionId, Data) VALUES(@AccountId, @SessionId, @Data)";
             using (var cmd = new SqlCommand(email, cnn))
             {
                 cmd.Parameters.AddWithValue("@AccountId", accountId);
                 cmd.Parameters.AddWithValue("@SessionId", cookieAuthCode);
+                cmd.Parameters.AddWithValue("@Data", sqlFormattedDate);
                 using var reader = cmd.ExecuteReader();
 
             }
@@ -346,7 +350,7 @@ namespace ExamInvigilatorProject
 
         }
 
-        public void logLogin(string givenEmail)
+        /*public void logLogin(string givenEmail)
         {
             cnn.Open();
             string id = "";
@@ -367,9 +371,10 @@ namespace ExamInvigilatorProject
             DateTime time = DateTime.Now;
             Guid guid = Guid.Empty;
             guid = new Guid(id);
+
             string sqlFormattedDate = time.ToString("yyyy-MM-dd HH:mm:ss.fff");
 
-            sql = "INSERT INTO dbo.tblLoginLogs(AccountId, Date) VALUES(@AccountId, @Date)";
+            sql = "INSERT INTO dbo.tblLoginSessions(AccountId, Date) VALUES(@AccountId, @Date)";
             using (SqlCommand cmd = new SqlCommand(sql, cnn))
             {
                 cmd.Parameters.AddWithValue("@AccountId", guid);
@@ -377,7 +382,8 @@ namespace ExamInvigilatorProject
                 cmd.ExecuteNonQuery();
             }
             cnn.Close();
-        }
+        }*/
+
 
 
         public string[] getName(Guid guid)
@@ -408,14 +414,14 @@ namespace ExamInvigilatorProject
         {
             cnn.Open();
             List<Guid> ids = new List<Guid>();
-            string sql = "SELECT AccountId FROM dbo.tblLoginLogs";
+            string sql = "SELECT SessionId FROM dbo.tblLoginSessions";
             using (SqlCommand cmd = new SqlCommand(sql, cnn))
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        string temp = reader["AccountId"].ToString();
+                        string temp = reader["SessionId"].ToString();
                         Guid guid = new Guid(temp);
                         ids.Add(guid);
                     }
@@ -424,6 +430,27 @@ namespace ExamInvigilatorProject
             }
             cnn.Close();
             return ids;
+        }
+
+        public string getTime(Guid guid)
+        {
+            cnn.Open();
+            string date = "";
+            string sql = "SELECT Data FROM dbo.tblLoginSessions WHERE SessionId = @Id";
+            using (SqlCommand cmd = new SqlCommand(sql, cnn))
+            {
+                cmd.Parameters.AddWithValue("@Id", guid);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        date = reader["Data"].ToString();
+                    }
+
+                }
+            }
+            cnn.Close();
+            return date;
         }
     }
 }

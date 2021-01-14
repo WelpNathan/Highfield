@@ -47,12 +47,12 @@
             i++;
         }
         -->
-                @foreach (var name in Model.getNames())
+                @foreach (var learner in Model.GetLearners())
                 {
                     <tr>
 
-                        <td>@name[0] @name[1]</td>
-                        <td>12/01/2021 17:04</td>
+                        <td>@learner.name[0] @learner.name[1]</td>
+                        <td>@learner.time</td>
                         <td><i class="fas fa-arrow-alt-circle-right"></i></td>
 
                     </tr>

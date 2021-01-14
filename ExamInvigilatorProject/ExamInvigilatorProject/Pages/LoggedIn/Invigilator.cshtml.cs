@@ -18,6 +18,12 @@ namespace ExamInvigilatorProject.Pages
         public dbEdit editor = new dbEdit();
         public List<Guid> ids;
 
+        public struct learner
+        {
+            public string[] name;
+            public string time;
+        }
+
         private readonly ILogger<InvigilatorModel> _logger;
 
         public InvigilatorModel(ILogger<InvigilatorModel> logger)
@@ -30,10 +36,10 @@ namespace ExamInvigilatorProject.Pages
 
         }
         
-        public List<string[]> getNames()
+        private List<string[]> getNames()
         {
             List<string[]> names = new List<string[]>();
-            ids = editor.getAllIds();
+            //ids = editor.getAllIds();
             for (int i = 0; i < ids.Count; i++)
             {
                 names.Add(editor.getName(ids[i]));
@@ -42,6 +48,34 @@ namespace ExamInvigilatorProject.Pages
 
         }
 
+        private List<string> getTimes()
+        {
+            List<string> times = new List<string>();
+            //ids = editor.getAllIds();
+            for (int i = 0; i < ids.Count; i++)
+            {
+                times.Add(editor.getTime(ids[i]));
+            }
+            return times;
+        }
+
+        public List<learner> GetLearners()
+        {
+            List<learner> learners = new List<learner>();
+            List<string[]> names = getNames();
+            List<string> times = getTimes();
+
+            for(int i = 0; i < names.Count; i++)
+            {
+                learner temp = new learner();
+                temp.name = names[i];
+                temp.time = times[i];
+                learners.Add(temp);
+
+            }
+
+            return learners;
+        }
       
         
         

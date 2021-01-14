@@ -63,7 +63,7 @@ namespace ExamInvigilatorProject.Pages
                     }
                     else
                     {
-                        editor.logLogin(emailAddress);
+                        //editor.logLogin(emailAddress);
                         Response.Redirect("LoggedIn/Learner");
                         //Student redirect.
                     }

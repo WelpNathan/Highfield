@@ -425,6 +425,27 @@ namespace ExamInvigilatorProject
             cnn.Close();
             return ids;
         }
+
+        public string getTime(Guid guid)
+        {
+            cnn.Open();
+            string date = "";
+            string sql = "SELECT Date FROM dbo.tblLoginLogs WHERE AccountId = @Id";
+            using (SqlCommand cmd = new SqlCommand(sql, cnn))
+            {
+                cmd.Parameters.AddWithValue("@Id", guid);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        date = reader["Date"].ToString();
+                    }
+
+                }
+            }
+            cnn.Close();
+            return date;
+        }
     }
 }
 

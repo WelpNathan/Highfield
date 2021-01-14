@@ -136,10 +136,10 @@ namespace ExamInvigilatorProject
             string sqlFormattedDate = time.ToString("yyyy-MM-dd HH:mm:ss.fff");
             // add into login sessions
 
+            
+            List<Guid> Ids = getAllAccountIds();
             cnn.Open();
-            List<Guid> sessionIds = getAllSessionIds();
-
-            if (!sessionIds.Contains(cookieAuthCode))
+            if (!Ids.Contains((Guid) accountId))
             {
                 const string email = "INSERT INTO dbo.tblLoginSessions(AccountId, SessionId, Data) VALUES(@AccountId, @SessionId, @Data)";
                 using (var cmd = new SqlCommand(email, cnn))
@@ -159,6 +159,7 @@ namespace ExamInvigilatorProject
                     cmd.Parameters.AddWithValue("@SessionId", cookieAuthCode);
                     cmd.Parameters.AddWithValue("@Data", sqlFormattedDate);
                     cmd.Parameters.AddWithValue("@AccountId", accountId);
+                    using var reader = cmd.ExecuteReader();
                 }
             }
             
@@ -429,8 +430,7 @@ namespace ExamInvigilatorProject
 
        public List<Guid> getAllSessionIds()
         {
-
-            //cnn.Open();
+            cnn.Open();
             List<Guid> ids = new List<Guid>();
             string sql = "SELECT SessionId FROM dbo.tblLoginSessions";
             using (SqlCommand cmd = new SqlCommand(sql, cnn))

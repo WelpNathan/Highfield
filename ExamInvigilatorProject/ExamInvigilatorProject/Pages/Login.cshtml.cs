@@ -47,13 +47,14 @@ namespace ExamInvigilatorProject.Pages
                 string passwordHash = editor.getPasswordHash(emailAddress);
                 byte[] passwordSalt = editor.getPasswordSalt(emailAddress);
 
-
-
                 string saltedPassword = editor.hashPassword(password, passwordSalt);
 
 
                 if (saltedPassword == passwordHash)
                 {
+                    // add cookie when signed in
+                    editor.AddNewSession(editor.GetIdFromEmail(emailAddress), Response);
+
                     success = true;
                     string role = editor.getRole(emailAddress);
                     if (role == "I")

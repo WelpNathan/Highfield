@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Text;
 using System.Collections;
+using Microsoft.AspNetCore.Http;
 
 namespace ExamInvigilatorProject
 {
@@ -100,6 +101,91 @@ namespace ExamInvigilatorProject
     {
         static string connetionString = "Server = localhost; Database = exam_db; User Id = SA; Password = strong!123";
         SqlConnection cnn = new SqlConnection(connetionString);
+
+        public Guid? GetUserIdFromCookie(string cookieAuthCode)
+        {
+            cnn.Open();
+            const string query = "SELECT AccountId FROM dbo.tblLoginSessions WHERE SessionId=@sessionId";
+            using (var cmd = new SqlCommand(query, cnn))
+            {
+                cmd.Parameters.AddWithValue("@sessionId", cookieAuthCode);
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var id = reader[0];
+                    cnn.Close();
+                    return new Guid(id.ToString()!);
+                }
+
+            }
+            cnn.Close();
+            return null;
+        }
+
+        // creates a new session (for storing on cookie)
+        public void AddNewSession(Guid? accountId, HttpResponse response)
+        {
+            // create new cookie options
+            var option = new CookieOptions {Expires = DateTime.Now.AddMilliseconds(1000 * 60 * 24)};
+
+            // create session id
+            var cookieAuthCode = Guid.NewGuid();
+            
+            // add into login sessions
+            cnn.Open();
+            const string email = "INSERT INTO dbo.tblLoginSessions(AccountId, SessionId) VALUES(@AccountId, @SessionId)";
+            using (var cmd = new SqlCommand(email, cnn))
+            {
+                cmd.Parameters.AddWithValue("@AccountId", accountId);
+                cmd.Parameters.AddWithValue("@SessionId", cookieAuthCode);
+                using var reader = cmd.ExecuteReader();
+
+            }
+            cnn.Close();
+
+            // add cookie
+            Console.WriteLine("hi: " + cookieAuthCode.ToString());
+            response.Cookies.Append("HIGHFIELD_AUTH", cookieAuthCode.ToString(), option);
+        }
+
+        public Guid? GetIdFromEmail(string email)
+        {
+            cnn.Open();
+            const string query = "SELECT Id FROM dbo.tblLogins WHERE Email=@givenEmail";
+            using (var cmd = new SqlCommand(query, cnn))
+            {
+                cmd.Parameters.AddWithValue("@givenEmail", email);
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var id = reader[0];
+                    cnn.Close();
+                    return new Guid(id.ToString()!);
+                }
+
+            }
+            cnn.Close();
+            return null;
+        }
+
+        public void SetLearnerReady(Guid id, bool isReady)
+        {
+            cnn.Open();
+            const string email = "UPDATE dbo.tblLogins SET IsReady=@isReady WHERE Id=@id";
+            using (var cmd = new SqlCommand(email, cnn))
+            {
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@isReady", isReady ? 1 : 0);
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    cnn.Close();
+                    return;
+                }
+
+            }
+            cnn.Close();
+        }
 
         public bool checkEmail(string givenEmail)
         {

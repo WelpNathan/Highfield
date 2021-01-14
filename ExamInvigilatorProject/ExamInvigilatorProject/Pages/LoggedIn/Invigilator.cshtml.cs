@@ -16,7 +16,7 @@ namespace ExamInvigilatorProject.Pages
         public string test = "test";
         public int noOfNames = 0;
         public dbEdit editor = new dbEdit();
-        public ArrayList ids;
+        public List<Guid> ids;
 
         private readonly ILogger<InvigilatorModel> _logger;
 

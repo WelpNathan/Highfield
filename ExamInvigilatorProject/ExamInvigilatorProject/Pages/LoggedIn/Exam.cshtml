@@ -1,13 +1,14 @@
 ﻿@page
 @model ExamModel
 @{
-    ViewData["Title"] = "Exam";
+    ViewData["Title"] = "Exam Exam Invigilation" ;
+
 }
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Highfield Education - Exam Invigilation Software Login </title>
+    <title>@ViewData["Title"] </title>
 
     <!-- links and includes-->
     <!-- links and includes-->
@@ -29,15 +30,19 @@
 
                 <div class="viewBoxSmall">
                     <i class="fas fa-user-graduate fa-8x"></i>
+                    <!-- if myList[0]>0, show camera/screen for learner based on ID, else show this icon-->
                 </div>
                 <div class="viewBoxSmall">
                     <i class="fas fa-user-graduate fa-8x"></i>
+                    <!-- if myList[0]>0, show camera/screen for learner based on ID, else show this icon-->
                 </div>
                 <div class="viewBoxSmall">
                     <i class="fas fa-user-graduate fa-8x"></i>
+                    <!-- if myList[0]>0, show camera/screen for learner based on ID, else show this icon-->
                 </div>
                 <div class="viewBoxSmall">
                     <i class="fas fa-user-graduate fa-8x"></i>
+                    <!-- if myList[0]>0, show camera/screen for learner based on ID, else show this icon-->
                 </div>       
 
             </div>
@@ -55,7 +60,7 @@
         </div>
         <div class="rightPanel">
             <div class="rightPanelMain">
-
+                    <!-- display individual selected learner's camera/screen -->
             </div>
             <div class="rightPanelOptions">
                 <div class="rightPanelOptionItems">
@@ -66,6 +71,10 @@
 
                 <div class="rightPanelOptionItems">
                     <button class="mute">Mute/Unmute</button> <!-- optional addition - mute/unmute microphone to chat with the selected person-->
+                </div>
+                
+                <div class="rightPanelOptionItems">
+                    <button class="mute">Switch View</button> <!-- Switch between selected learner's camera/screen -->
                 </div>
 
                 <div class="rightPanelOptionItems">

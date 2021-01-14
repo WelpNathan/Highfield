@@ -30,60 +30,76 @@
         <div class="tableSection1">
             <h3>List of ready learners</h3>
             <table id="activeLearners">
-                    <tr>
-                        <th>Student Name</td>
-                        <th>Time Logged In</td>
-                        <th>Add</th>
-                    </tr>
-                    <tr>
-                        <td>@Model.editor.getName((Guid)Model.ids[Model.noOfNames++])</td>
-                        <td>12/01/2021 17:04</td>
-                        <td><i class="fas fa-arrow-alt-circle-right"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Student Name 2</td>
-                        <td>12/01/2021 17:08</td>
-                        <td><i class="fas fa-arrow-alt-circle-right"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Student Name 3</td>
-                        <td>12/01/2021 17:10</td>
-                        <td><i class="fas fa-arrow-alt-circle-right"></i></td>
-                    </tr>
-                </tbody>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Time Logged In</th>
+                    <th>Add</th>
+                </tr>
+
+        <!-- pseudocode
+        int i=0
+        while(i<=numRecords){
+            <tr>
+                <td>NAME (pulled from DB) </td>
+                <td>TIMEof last login (pulled from DB)</td>
+                <td><i class="fas fa-arrow-alt-circle-right"></i></td>
+            </tr>
+            i++;
+        }
+        -->
+                <tr>
+                    <td>@Model.editor.getName((Guid)Model.ids[Model.noOfNames++])</td>
+                    <td>12/01/2021 17:04</td>
+                    <td><i class="fas fa-arrow-alt-circle-right"></i></td>
+                </tr>
+                <tr>
+                    <td>Student Name 2</td>
+                    <td>12/01/2021 17:08</td>
+                    <td><i class="fas fa-arrow-alt-circle-right"></i></td>
+                </tr>
+                <tr>
+                    <td>Student Name 3</td>
+                    <td>12/01/2021 17:10</td>
+                    <td><i class="fas fa-arrow-alt-circle-right"></i></td>
+                </tr>
             </table>
         </div>
 
+        <!-- myList[] array created with id's of chosen students (if none selected, = 0's) -->
         <div class="tableSection2">
             <h3>My Observation List</h3>
             <table id="myLearners">
                 <tr> 
-                    <th></td>
+                    <th></th>
                     <th>Student Name</th>
                 </tr>
                 <tr>
-                    <td><i class="fas fa-arrow-alt-circle-left"></i></td>
-                    <td>Student Name 4</td>
+                    <td><!-- if myList[0]>0, show <i class="fas fa-arrow-alt-circle-left"></i> -->
+                        <i class="fas fa-arrow-alt-circle-left"></i>
+                        <!-- Arrows: on click - set myList[0] value to 0. -->
+                            <!-- Might need to make the arrows buttons to make this functional -->
+                    </td>
+                    <td><!-- if myList[0]>0, lookup learner Name from DB using ID -->Student Name 4</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td><!-- if myList[1]>0, show <i class="fas fa-arrow-alt-circle-left"></i> --></td>
+                    <td><!-- if myList[1]>0, lookup learner Name from DB using ID --></td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td><!-- if myList[2]>0, show <i class="fas fa-arrow-alt-circle-left"></i> --></td>
+                    <td><!-- if myList[2]>0, lookup learner Name from DB using ID --></td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td><!-- if myList[3]>0, show <i class="fas fa-arrow-alt-circle-left"></i> --></td>
+                    <td><!-- if myList[3]>0, lookup learner Name from DB using ID --></td>
                 </tr>
-            </tbody>
         </table>
-                
+            <!-- Arrows: on click - set specific array value to 0. -->
         </div>
 
         <div class="actionBtn">
             <button class="startBtn">Start Invigilation</button>
+            <!-- on click load exam page passing myLIst[] array values -->
         </div>
 
         <!-- add option here for invigilator to set exam time length -->

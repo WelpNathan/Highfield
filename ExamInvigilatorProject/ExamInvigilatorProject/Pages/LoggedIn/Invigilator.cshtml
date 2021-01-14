@@ -30,26 +30,38 @@
         <div class="tableSection1">
             <h3>List of ready learners</h3>
             <table id="activeLearners">
-                    <tr>
-                        <th>Student Name</td>
-                        <th>Time Logged In</td>
-                        <th>Add</th>
-                    </tr>
-                    <tr>
-                        <td>@Model.editor.getName((Guid)Model.ids[Model.noOfNames++])</td>
-                        <td>12/01/2021 17:04</td>
-                        <td><i class="fas fa-arrow-alt-circle-right"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Student Name 2</td>
-                        <td>12/01/2021 17:08</td>
-                        <td><i class="fas fa-arrow-alt-circle-right"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Student Name 3</td>
-                        <td>12/01/2021 17:10</td>
-                        <td><i class="fas fa-arrow-alt-circle-right"></i></td>
-                    </tr>
+                <tr>
+                    <th>Student Name</td>
+                    <th>Time Logged In</td>
+                    <th>Add</th>
+                </tr>
+
+        <!-- pseudocode
+        int i=0
+        while(i<=numRecords){
+            <tr>
+                <td>NAME (pulled from DB) </td>
+                <td>TIMEof last login (pulled from DB)</td>
+                <td><i class="fas fa-arrow-alt-circle-right"></i></td>
+            </tr>
+            i++;
+        }
+        -->
+                <tr>
+                    <td>@Model.editor.getName((Guid)Model.ids[Model.noOfNames++])</td>
+                    <td>12/01/2021 17:04</td>
+                    <td><i class="fas fa-arrow-alt-circle-right"></i></td>
+                </tr>
+                <tr>
+                    <td>Student Name 2</td>
+                    <td>12/01/2021 17:08</td>
+                    <td><i class="fas fa-arrow-alt-circle-right"></i></td>
+                </tr>
+                <tr>
+                    <td>Student Name 3</td>
+                    <td>12/01/2021 17:10</td>
+                    <td><i class="fas fa-arrow-alt-circle-right"></i></td>
+                </tr>
                 </tbody>
             </table>
         </div>

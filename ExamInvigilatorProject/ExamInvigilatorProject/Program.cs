@@ -135,22 +135,38 @@ namespace ExamInvigilatorProject
             DateTime time = DateTime.Now;
             string sqlFormattedDate = time.ToString("yyyy-MM-dd HH:mm:ss.fff");
             // add into login sessions
-            cnn.Open();
-            const string email = "INSERT INTO dbo.tblLoginSessions(AccountId, SessionId, Data) VALUES(@AccountId, @SessionId, @Data)";
-            using (var cmd = new SqlCommand(email, cnn))
-            {
-                cmd.Parameters.AddWithValue("@AccountId", accountId);
-                cmd.Parameters.AddWithValue("@SessionId", cookieAuthCode);
-                cmd.Parameters.AddWithValue("@Data", sqlFormattedDate);
-                using var reader = cmd.ExecuteReader();
 
+            cnn.Open();
+            List<Guid> sessionIds = getAllSessionIds();
+
+            if (!sessionIds.Contains(cookieAuthCode))
+            {
+                const string email = "INSERT INTO dbo.tblLoginSessions(AccountId, SessionId, Data) VALUES(@AccountId, @SessionId, @Data)";
+                using (var cmd = new SqlCommand(email, cnn))
+                {
+                    cmd.Parameters.AddWithValue("@AccountId", accountId);
+                    cmd.Parameters.AddWithValue("@SessionId", cookieAuthCode);
+                    cmd.Parameters.AddWithValue("@Data", sqlFormattedDate);
+                    using var reader = cmd.ExecuteReader();
+
+                }
             }
+            else
+            {
+                string update = "UPDATE dbo.tblLoginSessions SET Data=@Data, SessionId=@SessionId WHERE AccountId=@AccountId";
+                using (var cmd = new SqlCommand(update, cnn))
+                {
+                    cmd.Parameters.AddWithValue("@SessionId", cookieAuthCode);
+                    cmd.Parameters.AddWithValue("@Data", sqlFormattedDate);
+                    cmd.Parameters.AddWithValue("@AccountId", accountId);
+                }
+            }
+            
             cnn.Close();
 
             // add cookie
             Console.WriteLine("hi: " + cookieAuthCode.ToString());
-            response.Cookies.Append("HIGHFIELD_AUTH", cookieAuthCode.ToString(), option);
-        }
+            response.Cookies.Append("HIGHFIELD_AUTH", cookieAuthCode.ToString(), option);        }
 
         public Guid? GetIdFromEmail(string email)
         {
@@ -320,6 +336,7 @@ namespace ExamInvigilatorProject
             }
             catch (SqlException)
             {
+                cnn.Close();
                 return false;
             }
             
@@ -410,9 +427,10 @@ namespace ExamInvigilatorProject
         }
 
 
-       public List<Guid> getAllIds()
+       public List<Guid> getAllSessionIds()
         {
-            cnn.Open();
+
+            //cnn.Open();
             List<Guid> ids = new List<Guid>();
             string sql = "SELECT SessionId FROM dbo.tblLoginSessions";
             using (SqlCommand cmd = new SqlCommand(sql, cnn))
@@ -422,6 +440,28 @@ namespace ExamInvigilatorProject
                     while (reader.Read())
                     {
                         string temp = reader["SessionId"].ToString();
+                        Guid guid = new Guid(temp);
+                        ids.Add(guid);
+                    }
+
+                }
+            }
+            cnn.Close();
+            return ids;
+        }
+
+        public List<Guid> getAllAccountIds()
+        {
+            cnn.Open();
+            List<Guid> ids = new List<Guid>();
+            string sql = "SELECT AccountId FROM dbo.tblLoginSessions";
+            using (SqlCommand cmd = new SqlCommand(sql, cnn))
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string temp = reader["AccountId"].ToString();
                         Guid guid = new Guid(temp);
                         ids.Add(guid);
                     }
@@ -452,6 +492,9 @@ namespace ExamInvigilatorProject
             cnn.Close();
             return date;
         }
+
+      
+        
     }
 }
 

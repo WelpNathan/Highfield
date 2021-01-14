@@ -2,8 +2,8 @@
 @model InvigilatorModel
 @{
     ViewData["Title"] = "Logged In - Invigilator";
-    Model.ids = Model.editor.getAllIds();
-    string hello = "hello";
+    Model.sessions = Model.editor.getAllSessionIds();
+    Model.ids = Model.editor.getAllAccountIds();
    
 }
 

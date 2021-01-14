@@ -16,6 +16,7 @@ namespace ExamInvigilatorProject.Pages
         public string test = "test";
         public int noOfNames = 0;
         public dbEdit editor = new dbEdit();
+        public List<Guid> sessions;
         public List<Guid> ids;
 
         public struct learner
@@ -52,9 +53,9 @@ namespace ExamInvigilatorProject.Pages
         {
             List<string> times = new List<string>();
             //ids = editor.getAllIds();
-            for (int i = 0; i < ids.Count; i++)
+            for (int i = 0; i < sessions.Count; i++)
             {
-                times.Add(editor.getTime(ids[i]));
+                times.Add(editor.getTime(sessions[i]));
             }
             return times;
         }

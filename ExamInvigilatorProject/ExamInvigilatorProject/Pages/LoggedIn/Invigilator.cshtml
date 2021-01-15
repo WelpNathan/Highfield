@@ -4,7 +4,7 @@
     ViewData["Title"] = "Logged In - Invigilator";
     Model.sessions = Model.editor.getAllSessionIds();
     Model.ids = Model.editor.getAllAccountIds();
-   
+    Model.learners = Model.GetLearners();
 }
 
 <head>
@@ -36,6 +36,10 @@
                     <th>Add</th>
                 </tr>
 
+<<<<<<< Updated upstream
+
+                @foreach (var learner in Model.GetLearners())
+=======
         <!-- pseudocode
         int i=0
         while(i<=numRecords){
@@ -47,26 +51,21 @@
             i++;
         }
         -->
-                @foreach (var learner in Model.GetLearners())
+                @for (int i = 0; i < Model.learners.Count(); i++)
+>>>>>>> Stashed changes
                 {
-                    <tr>
-
-                        <td>@learner.name[0] @learner.name[1]</td>
-                        <td>@learner.time</td>
-                        <td><i class="fas fa-arrow-alt-circle-right"></i></td>
-
-                    </tr>
+            <tr>
+                 
+                <td>@Model.learners[i].name[0] @Model.learners[i].name[0]</td>
+                <td>@Model.learners[i].time</td>
+                <form asp-page-handler="RightArrow" method="post" autocomplete="off">
+                    <td><button class="fas fa-arrow-alt-circle-right"></button></td>
+                    <input type="hidden" name="id" value=@i />
+                    <input type="hidden" name="learners" value=@Model.learners />
+                    <!----<i class="fas fa-arrow-alt-circle-right"></i>-->
+                </form>
+            </tr>
                 }
-                <tr>
-                    <td>Student Name 2</td>
-                    <td>12/01/2021 17:08</td>
-                    <td><i class="fas fa-arrow-alt-circle-right"></i></td>
-                </tr>
-                <tr>
-                    <td>Student Name 3</td>
-                    <td>12/01/2021 17:10</td>
-                    <td><i class="fas fa-arrow-alt-circle-right"></i></td>
-                </tr>
             </table>
         </div>
 
@@ -103,8 +102,7 @@
         </div>
 
         <div class="actionBtn">
-            <button class="startBtn">Start Invigilation</button>
-            <!-- on click load exam page passing myLIst[] array values -->
+            <button class="startBtn" onclick="startViewing()">Start Invigilation</button>
         </div>
 
         <!-- add option here for invigilator to set exam time length -->

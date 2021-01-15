@@ -102,6 +102,19 @@ namespace ExamInvigilatorProject
         static string connetionString = "Server = localhost; Database = exam_db; User Id = SA; Password = strong!123";
         SqlConnection cnn = new SqlConnection(connetionString);
 
+        public void AddNewNote(string examId, string notes)
+        {
+            cnn.Open();
+            const string query = "UPDATE dbo.tblExams SET Notes=@Notes WHERE Id=@ExamId";
+            using (var cmd = new SqlCommand(query, cnn))
+            {
+                cmd.Parameters.AddWithValue("@ExamId", examId);
+                cmd.Parameters.AddWithValue("@Notes", notes);
+                cmd.ExecuteReader();
+            }
+            cnn.Close();
+        }
+
         public Guid? GetUserIdFromCookie(string cookieAuthCode)
         {
             cnn.Open();

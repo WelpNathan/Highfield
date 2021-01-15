@@ -101,4 +101,9 @@ function startViewing() {
 
 }
 
+function buttonRight(getName , getTime) {
+  
+    var name = document.getElementById(getName).innerText;
+    var time = document.getElementById(getTime).innerText;
 
+}

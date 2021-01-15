@@ -36,17 +36,7 @@
                     <th>Add</th>
                 </tr>
 
-        <!-- pseudocode
-        int i=0
-        while(i<=numRecords){
-            <tr>
-                <td>NAME (pulled from DB) </td>
-                <td>TIMEof last login (pulled from DB)</td>
-                <td><i class="fas fa-arrow-alt-circle-right"></i></td>
-            </tr>
-            i++;
-        }
-        -->
+
                 @foreach (var learner in Model.GetLearners())
                 {
                     <tr>
@@ -57,16 +47,6 @@
 
                     </tr>
                 }
-                <tr>
-                    <td>Student Name 2</td>
-                    <td>12/01/2021 17:08</td>
-                    <td><i class="fas fa-arrow-alt-circle-right"></i></td>
-                </tr>
-                <tr>
-                    <td>Student Name 3</td>
-                    <td>12/01/2021 17:10</td>
-                    <td><i class="fas fa-arrow-alt-circle-right"></i></td>
-                </tr>
             </table>
         </div>
 
@@ -103,8 +83,7 @@
         </div>
 
         <div class="actionBtn">
-            <button class="startBtn">Start Invigilation</button>
-            <!-- on click load exam page passing myLIst[] array values -->
+            <button class="startBtn" onclick="startViewing()">Start Invigilation</button>
         </div>
 
         <!-- add option here for invigilator to set exam time length -->

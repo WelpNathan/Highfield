@@ -86,5 +86,19 @@ function notesOff() {
 
 
 
+//Invigilator Page Code to redirect and pass data
+function startViewing() {
+    //passing myLIst[] array values into session ID's
+    '<%Session["myLIst1"] = myList[0]%>';
+    '<%Session["myLIst2"] = myList[1]%>';
+    '<%Session["myLIst3"] = myList[2]%>';
+    '<%Session["myLIst4"] = myList[3]%>';
+
+    //load Exam page
+    location.replace("Exam.cshtml")
+    
+
+
+}
 
 

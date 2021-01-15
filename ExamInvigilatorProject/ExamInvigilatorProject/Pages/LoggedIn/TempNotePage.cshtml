@@ -1,0 +1,37 @@
+﻿@page
+@model ExamInvigilatorProject.Pages.LoggedIn.TempNotePageModel
+@{
+}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"] </title>
+
+    <!-- links and includes-->
+    <link href="../../css/styles.css" rel="stylesheet" />
+    <link href="../../lib/css/bootstrap/css/dist/bootstrap-grid.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
+
+<body>
+<div class="mainContent">
+    <div class="notesForm">
+        <h1>Notes</h1>
+        <hr>
+        <form asp-page-handler="submit">
+            <textarea name="examId" placeholder="Type Exam Id Here" wrap="hard"></textarea>
+            <textarea name="notesText" placeholder="Type Notes here" wrap="hard"></textarea>
+
+            <div class="addFiles"><input type="file"></div>
+
+            <div id="notesMessage">
+                <p>Notes Saved</p>
+            </div>
+
+            <input type="submit" value="Save">
+            <button id="exitNotes">Exit</button>
+        </form>
+    </div>
+</div>
+</body>

@@ -91,12 +91,6 @@ namespace ExamInvigilatorProject
 
 
 
-
-
-
-
-
-
     public class dbEdit
     {
         static string connetionString = "Server = localhost; Database = exam_db; User Id = SA; Password = strong!123";
@@ -114,6 +108,7 @@ namespace ExamInvigilatorProject
             }
             cnn.Close();
         }
+
 
         public Guid? GetUserIdFromCookie(string cookieAuthCode)
         {
@@ -328,13 +323,15 @@ namespace ExamInvigilatorProject
             try
             {
                 cnn.Open();
+
                 string register = "INSERT INTO dbo.tblLogins(Id, Email, FirstName, LastName, PasswordHash, PasswordSalt, Role, IsReady) VALUES(@Id, @email, @FirstName, @LastName, @PasswordHash, @PasswordSalt, @Role, @IsReady)";
 
                 Guid guid = Guid.NewGuid();
 
                 using (SqlCommand cmd = new SqlCommand(register, cnn))
                 {
-                    // Create and set the parameters values 
+                    // Prepare and Bind Parameters
+                    cmd.Prepare();
                     cmd.Parameters.AddWithValue("@Id", guid);
                     cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@FirstName", firstName);

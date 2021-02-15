@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Text;
+using System.Security.Authentication;
 
 namespace ExamInvigilatorProject.Pages
 {
@@ -31,8 +32,6 @@ namespace ExamInvigilatorProject.Pages
 
         public void OnPostLogin()
         {
-
-
             dbEdit editor = new dbEdit();
 
             var emailAddress = Request.Form["loginemail"];          //needs sanitising to avoid sql injection
@@ -72,6 +71,8 @@ namespace ExamInvigilatorProject.Pages
                 {
                     //login failed.
                     attempts += 1;
+                    //need error message
+                    //after 3 failed login attempts, link to forgot password/username page?
                 }
             }
             attempts += 1;

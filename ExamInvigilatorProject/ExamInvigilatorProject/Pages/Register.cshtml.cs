@@ -33,6 +33,14 @@ namespace ExamInvigilatorProject.Pages
             var lastName = Request.Form["surname"];
             var roled = Request.Form["userType"];
 
+
+            //prepare and bind parameters
+
+
+
+            //end of binding
+
+
             if(roled == "learner")
             {
                 role = 'C';

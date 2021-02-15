@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace ExamInvigilatorProject
 {
@@ -27,12 +29,15 @@ namespace ExamInvigilatorProject
             services.AddRazorPages();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie();
+
             services.AddMvc()
                 .AddRazorPagesOptions(options =>
                 {
                     //lock down LoggedIn Folder to non authorised users.
                     options.Conventions.AuthorizeFolder("/LoggedIn");
                 });
+
+            services.AddMvc(Options => Options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute())); // secures inputs using registration forms (using POST)
 
         }
 

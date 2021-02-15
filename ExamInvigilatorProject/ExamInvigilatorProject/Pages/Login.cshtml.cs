@@ -35,8 +35,8 @@ namespace ExamInvigilatorProject.Pages
 
             dbEdit editor = new dbEdit();
 
-            var emailAddress = Request.Form["loginemail"];
-            var password = Request.Form["loginpassword"];
+            var emailAddress = Request.Form["loginemail"];          //needs sanitising to avoid sql injection
+            var password = Request.Form["loginpassword"];           //needs sanitising to avoid sql injection
 
 
 

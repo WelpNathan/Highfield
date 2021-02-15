@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace ExamInvigilatorProject
 {
@@ -24,6 +25,15 @@ namespace ExamInvigilatorProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie();
+            services.AddMvc()
+                .AddRazorPagesOptions(options =>
+                {
+                    //lock down LoggedIn Folder to non authorised users.
+                    options.Conventions.AuthorizeFolder("/LoggedIn");
+                });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +56,7 @@ namespace ExamInvigilatorProject
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {

@@ -19,7 +19,8 @@ namespace ExamInvigilatorProject.Pages
         public List<Guid> sessions;
         public List<Guid> ids;
         public List<learner> learners;
-        public learner[] chosenLearners = new learner[4];
+        public List<learner> chosenLearners;
+        public bool firstLoad = true;
 
         public struct learner
         {
@@ -79,14 +80,6 @@ namespace ExamInvigilatorProject.Pages
 
             return learners;
         }
-      
-        public void OnPostRightArrow(int id, List<learner> learners)
-        {
-            chosenLearners[0] = learners[id];
-            learners.RemoveAt(id);
-        }
-        
-
         
     }
 }

@@ -56,6 +56,7 @@ namespace ExamInvigilatorProject.Pages
 
                     success = true;
                     string role = editor.getRole(emailAddress);
+
                     if (role == "I")
                     {
                         Response.Redirect("LoggedIn/Invigilator");

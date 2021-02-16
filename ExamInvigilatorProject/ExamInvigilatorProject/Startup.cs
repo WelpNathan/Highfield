@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,6 +38,11 @@ namespace ExamInvigilatorProject
                     //lock down LoggedIn Folder to non authorised users.
                     //options.Conventions.AuthorizeFolder("/LoggedIn");
                 });
+
+            services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.KnownProxies.Add(IPAddress.Parse("localhost"));
+            });
 
             services.AddMvc(Options => Options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute())); // secures inputs using registration forms (using POST)
 

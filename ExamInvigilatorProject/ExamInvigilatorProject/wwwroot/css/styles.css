@@ -374,7 +374,12 @@ table{
    text-align: right;
    padding-right: 40px;
    padding: 8px;
+   text-decoration: none;
 }
+
+    .footer i {
+        padding: 8px;
+    }
 
   /* ////////////////////////////////////////// Exam Pages///////////////////////*/
   .leftPanel{

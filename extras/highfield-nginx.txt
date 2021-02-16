@@ -1,8 +1,6 @@
 server {
-        listen 80;
-        listen [::]:80;
 
-        server_name ec2-18-214-0-191.compute-1.amazonaws.com;
+        server_name wirewasp.com;
 
         location ~ \.(png|js|css) {
             root /home/ubuntu/Highfield/ExamInvigilatorProject/publish/wwwroot;
@@ -18,5 +16,27 @@ server {
             proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header   X-Forwarded-Proto $scheme;
         }
+
+
+    listen [::]:443 ssl ipv6only=on; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/wirewasp.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/wirewasp.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+server {
+    if ($host = wirewasp.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+        listen 80;
+        listen [::]:80;
+
+        server_name wirewasp.com;
+    return 404; # managed by Certbot
+
 
 }

@@ -362,14 +362,13 @@ table{
 
   /* ///////////////////////////////////////footer///////////////////////*/
 .footer {
-    background-color: #7e7e7e;
+    background-color: #5C2483;
     width: 100%;
     float: left;
     margin-top: 20px;
-
 }
 
-.footer p {
+.footer a {
    color: #f1f1f1;
    text-align: right;
    padding-right: 40px;

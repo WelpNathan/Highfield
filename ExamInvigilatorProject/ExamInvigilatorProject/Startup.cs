@@ -31,7 +31,10 @@ namespace ExamInvigilatorProject
             services.AddRazorPages();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie();
-
+            services.AddMvc().AddRazorOptions(options =>
+            {
+                options.PageViewLocationFormats.Add("/Pages/Partials/{0}.cshtml");
+            });
             services.AddMvc()
                 .AddRazorPagesOptions(options =>
                 {

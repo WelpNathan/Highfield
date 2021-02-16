@@ -19,5 +19,5 @@ jobs:
           rm -rf Highfield
           git clone git@github.com:WelpNathan/Highfield.git
           cd Highfield/ExamInvigilatorProject
-          dotnet publish -c release -o publish -r linux-x64
+          dotnet publish -o publish -r linux-x64
           sudo systemctl restart highfield.service

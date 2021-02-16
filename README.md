@@ -13,6 +13,8 @@ This is home to the Highfield Qualification's Webcam Invigilation project made i
 This repository hosts:
 - Source code
 - Nginx proxy configuration
+- Linux systemd configuration
+- Github action for continuous delivery
 - Images including Highfield Qualification Logo's (all rights reserved)
 
 ## Quickstart

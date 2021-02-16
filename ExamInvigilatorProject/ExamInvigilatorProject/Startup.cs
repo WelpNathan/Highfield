@@ -34,7 +34,7 @@ namespace ExamInvigilatorProject
                 .AddRazorPagesOptions(options =>
                 {
                     //lock down LoggedIn Folder to non authorised users.
-                    options.Conventions.AuthorizeFolder("/LoggedIn");
+                    //options.Conventions.AuthorizeFolder("/LoggedIn");
                 });
 
             services.AddMvc(Options => Options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute())); // secures inputs using registration forms (using POST)

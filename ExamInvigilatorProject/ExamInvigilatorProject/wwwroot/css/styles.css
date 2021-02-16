@@ -370,6 +370,7 @@ table{
 }
 
 footerItem {
+    width: 20%;
     margin: 8px, 16px;
     padding: 4px;
     background-color: rgba(255, 255, 255, 0.18);

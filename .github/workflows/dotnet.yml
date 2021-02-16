@@ -17,8 +17,8 @@ jobs:
           cd ~
           rm -rf Highfield
           git clone git@github.com:WelpNathan/Highfield.git
-          cd Highfield
+          cd Highfield/ExamInvigilatorProject
           dotnet publish -c release -o publish -r linux-x64
-          cd Highfield/ExamInvigilatorProject/publish
+          cd ../publish
           chmod 777 ./ExamInvigilatorProject
           ./ExamInvigilatorProject.dll

@@ -235,6 +235,11 @@ body {
     justify-content: center;
     padding-top: 20px;
   }
+
+  .registerLine{
+      float: left;
+      margin: 4px;
+  }
   .register form label {
     display: flex;
     justify-content: center;

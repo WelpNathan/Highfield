@@ -159,6 +159,20 @@ body {
     align-items: center;
   }
 
+.logoutBtn {
+    width: 320px;
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    padding: 8px 16px;
+    font-size: 20px;
+    color: white;
+    background-color: #353434;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 
   /*/////////////////////////////////////// login form///////////////////////////////////////////////////*/
   .login {

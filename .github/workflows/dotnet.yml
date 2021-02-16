@@ -15,5 +15,7 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           git clone git@github.com:WelpNathan/Highfield.git
-          cd Highfield/ExamInvigilatorProject/ExamInvigilatorProject/obj/Release/netcoreapp3.1/linux-x64
-          dotnet run ExamInvigilatorProject.dll
+          dotnet publish -c release -o publish -r linux-x64
+          cd Highfield/ExamInvigilatorProject/publish
+          chmod 777 ./ExamInvigilatorProject
+          ./ExamInvigilatorProject.dll

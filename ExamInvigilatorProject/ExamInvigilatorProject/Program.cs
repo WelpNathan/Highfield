@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Text;
 using System.Collections;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ExamInvigilatorProject
 {
@@ -67,6 +68,7 @@ namespace ExamInvigilatorProject
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .UseSystemd()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

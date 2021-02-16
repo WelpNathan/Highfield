@@ -39,7 +39,13 @@ namespace ExamInvigilatorProject.Pages
         {
 
         }
-        
+
+
+        public void OnGetSelect()
+        {
+            string test = "ts";
+        }
+
         private List<string[]> getNames()
         {
             List<string[]> names = new List<string[]>();

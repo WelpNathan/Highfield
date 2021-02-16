@@ -4,7 +4,7 @@ NEEDS FINALISING.
 
 <p align="center">
 	<img src="https://img.shields.io/github/license/welpnathan/highfield?style=for-the-badge" />
-	<img src="https://img.shields.io/github/workflow/status/WelpNathan/Highfield/remote%20ssh%20command?style=for-the-badge" />
+	<img src="https://img.shields.io/github/workflow/status/welpnathan/highfield/AWS%20Continuous%20Delivery?style=for-the-badge" />
 	<img src="https://img.shields.io/github/contributors/welpnathan/highfield?style=for-the-badge" />
 </p>
 

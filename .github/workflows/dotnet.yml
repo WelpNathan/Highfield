@@ -1,0 +1,19 @@
+name: remote ssh command
+on: [push]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        script: |
+          git clone git@github.com:WelpNathan/Highfield.git
+          cd Highfield/ExamInvigilatorProject/ExamInvigilatorProject/obj/Release/netcoreapp3.1/linux-x64
+          dotnet run ExamInvigilatorProject.dll

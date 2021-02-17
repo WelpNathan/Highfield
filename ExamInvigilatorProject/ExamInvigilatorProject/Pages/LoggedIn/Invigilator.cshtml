@@ -52,13 +52,29 @@
         var table = document.getElementById("myLearners");
         var name = document.getElementById(id);
         var row = table.insertRow(1);
+        var button = document.createElement("BUTTON")
+        var node = document.createTextNode("remove")
+        button.appendChild(node);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
+        cell1.innerHTML = '<button class="fas fa-arrow-alt-circle-left" type="button" onClick="moveLearnerBack('+id+')">';
         cell2.innerHTML = name.innerHTML;
-        cell1.innerHTML = "remove button here";
+        //cell1.innerHTML = <button class="fas fa-arrow-alt-circle-right"></button>;
 
         //removes item from left side
         var table2 = document.getElementById("activeLearners");
+        try {
+            table2.deleteRow(id);
+        }
+        catch (err) {
+            table2.deleteRow(id - 1);
+        }
+    }
+
+
+
+    function moveLearnerBack(id) {
+        var table2 = document.getElementById("myLearners");
         try {
             table2.deleteRow(id);
         }

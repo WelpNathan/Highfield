@@ -24,15 +24,22 @@
             </a>
 
             <div id="myLinks">
-                <!--  If not Logged in show: -->
-                <a href="/Index">Home</a>
-                <a href="/Login">Login</a>
-                <a href="/Register">Register</a>
+                @{
+                    if (User?.Identity.IsAuthenticated == true)
+                    {
+                        <!--  If Logged in show: -->
+                        <a href="/LoggedIn/Profile">My Profile</a>
+                        <a href="">Logout</a>
+                    }
+                    else
+                    {
+                        <!--  If not Logged in show: -->
+                        <a href="/Index">Home</a>
+                        <a href="/Login">Login</a>
+                        <a href="/Register">Register</a>
+                    }
 
-                <!--  If Logged in show: -->
-                <a href="">Logout</a>
-                <a href="/LoggedIn/Profile">My Profile</a>
-
+                }
             </div>
 
             <a href="javascript:void(0);" class="icon" onclick="topNavBar()">

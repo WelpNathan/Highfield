@@ -72,13 +72,18 @@
 </body>
 
 <script>
-    function moveLearner(firstName) {
+    function moveLearner(id) {
+        //adds item from left table to right
         var table = document.getElementById("myLearners");
-        var name = document.getElementById(firstName);
+        var name = document.getElementById(id);
         var row = table.insertRow(1);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
-
         cell2.innerHTML = name.innerHTML;
+        cell1.innerHTML = "remove button here";
+
+        //removes item from left side
+        var table2 = document.getElementById("activeLearners");
+        table2.deleteRow(id);
     }
 </script>

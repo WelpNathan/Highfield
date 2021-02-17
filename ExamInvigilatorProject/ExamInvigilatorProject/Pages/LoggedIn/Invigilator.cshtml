@@ -58,7 +58,9 @@
         button.appendChild(node);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
-        cell1.innerHTML = '<button class="fas fa-arrow-alt-circle-left" type="button" onClick="moveLearnerBack('+id+ ', ' + name+')">';
+        var time = cells[1].innerText;
+        cell2.id = id;
+        cell1.innerHTML = '<button class="fas fa-arrow-alt-circle-left" type="button" onClick="moveLearnerBack('+ id +', '+ String(time) +')">';
         cell2.innerHTML = cells[0].innerText;
         //cell1.innerHTML = <button class="fas fa-arrow-alt-circle-right"></button>;
 
@@ -73,8 +75,6 @@
 
     function moveLearnerBack(id, row) {
         var table = document.getElementById("myLearners");
-        
-
         var index = row.rowIndex;
         table.deleteRow(index);
     }

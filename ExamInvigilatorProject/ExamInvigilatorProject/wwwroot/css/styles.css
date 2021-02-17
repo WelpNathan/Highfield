@@ -729,10 +729,13 @@ table{
     display: none; /* Hidden by default */
     width: 100%; /* Full width (cover the whole page) */
     height: 50%; /* Full height (cover the whole page) */
-    top: 0;
+    top: 200px;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    background-color: rgba(0, 159, 227, 0.8); /* Black background with opacity */
+}
+
+#readyOverlay h2{
 
 }

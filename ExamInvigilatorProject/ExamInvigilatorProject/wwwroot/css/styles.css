@@ -264,18 +264,18 @@ body {
         padding-top: 20px;
     }
 
-        .forgot form label {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 50px;
-            background-color: #009FE3;
-            color: #ffffff;
-        }
+    .forgot form label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        background-color: #009FE3;
+        color: #ffffff;
+    }
 
 .forgot form input[type="email"] {
-    width: 420px;
+    width: 400px;
     height: 50px;
     margin: 0px 15px 20px 0px;
     padding: 0 15px;

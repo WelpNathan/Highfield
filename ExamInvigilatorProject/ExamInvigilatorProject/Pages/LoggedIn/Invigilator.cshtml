@@ -51,6 +51,7 @@
         //adds item from left table to right
         var table = document.getElementById("myLearners");
         var name = document.getElementById(id);
+        var cells = name.getElementsByTagName("td");
         var row = table.insertRow(1);
         var button = document.createElement("BUTTON")
         var node = document.createTextNode("remove")
@@ -58,13 +59,14 @@
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         cell1.innerHTML = '<button class="fas fa-arrow-alt-circle-left" type="button" onClick="moveLearnerBack('+id+')">';
-        cell2.innerHTML = name.innerHTML;
+        cell2.innerHTML = cells[0].innerText;
         //cell1.innerHTML = <button class="fas fa-arrow-alt-circle-right"></button>;
 
         //removes item from left side
         var table2 = document.getElementById("activeLearners");
+        var index = name.rowIndex;
         try {
-            table2.deleteRow(id);
+            table2.deleteRow(index);
         }
         catch (err) {
             table2.deleteRow(id - 1);

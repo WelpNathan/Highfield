@@ -74,11 +74,11 @@
 <script>
     function moveLearner(firstName) {
         var table = document.getElementById("myLearners");
-
+        var name = document.getElementById(firstName);
         var row = table.insertRow(1);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
 
-        cell2.innerHTML = firstName;
+        cell2.innerHTML = name.innerHTML;
     }
 </script>

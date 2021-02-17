@@ -1,0 +1,52 @@
+﻿<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Highfield Education - Exam Invigilation Software Login </title>
+
+    <link href="../wwwroot/css/styles.css" rel="stylesheet" />
+    <link href="../wwwroot/lib/bootstrap/bootstrap-grid.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/v4-shims.csss">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
+
+
+</head>
+
+<body>
+
+    <div class="mainContent">
+        <div class="mainContent">
+            <div class="forgot">
+                <h1>I have forgotten my email address</h1>
+                <form asp-page-handler="login" method="post" autocomplete="off">
+
+                    <p>Contact Us</p>
+
+                    <input type="submit" value="Send">
+
+
+                </form>
+
+
+            </div>
+            <div class="forgot">
+                <h1>I have forgotten my password</h1>
+                <form asp-page-handler="login" method="post" autocomplete="off">
+
+                    <label for="loginemail"><i class="fas fa-envelope"></i></label>
+                    <input type="email" name="requestPass" placeholder="What's your email?">
+
+                    <input type="submit" value="Send">
+
+
+                </form>
+
+
+            </div>
+
+            </div>
+
+    </div>
+
+</body>
+</html>

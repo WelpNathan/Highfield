@@ -708,7 +708,7 @@ table{
     margin: 8px;
 }
 
-#homerPic {
+#homePic {
     width: 70%;
     padding: 8px;
     float: left;
@@ -749,4 +749,12 @@ table{
     100% {
         transform: rotate(360deg);
     }
+}
+
+.divider1{
+    
+    margin: auto;
+    color: #009FE3;
+    border-color: #009FE3;
+    background-color: #009FE3;
 }

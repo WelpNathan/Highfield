@@ -364,17 +364,15 @@ body {
 
   /* /////////////////////////////////////// Learner Tables ///////////////////////*/
 
-.tableSection1{
-  float: left;
-  width: 40%;
-  margin: 20px;
-  padding: 16px;
+.tableSection1, .tableSection2 {
+    float: left;
+    width: 40%;
+    margin: 20px;
+    padding: 16px;
 }
-.tableSection2{
-  float: left;
-  width: 40%;
-  margin: 20px;
-  padding: 16px;
+
+.tableSection2 p{
+    padding: 8px;
 }
 
 #activeLearners{
@@ -711,7 +709,7 @@ table{
 }
 
 #homerPic {
-    width: 80%;
+    width: 70%;
     padding: 8px;
     float: left;
     margin: 8px;

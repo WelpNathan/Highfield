@@ -728,14 +728,14 @@ table{
     position: fixed; /* Sit on top of the page content */
     display: none; /* Hidden by default */
     width: 100%; /* Full width (cover the whole page) */
-    height: 70%; /* Full height (cover the whole page) */
+    height: 70%; 
     top: 150px;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 159, 227, 0.8); /* Black background with opacity */
+    background-color: #009FE3; 
 }
 
-#readyOverlay h1{
-
+#readyOverlay h1, #readyOverlay h3 {
+    text-align: center;
 }

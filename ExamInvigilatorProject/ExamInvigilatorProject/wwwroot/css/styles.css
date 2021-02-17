@@ -349,9 +349,8 @@ body {
     width: 350px;
     height: 50px;
     border: 1px solid #dee0e4;
-    margin-bottom: 20px;
+    margin: 0 15px 20px 0;
     padding: 0 15px;
-    margin-right: 8px;
 }
 
   .register form input[type="submit"] {

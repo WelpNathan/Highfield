@@ -19,10 +19,7 @@
 
     <div class="tableSection1">
         <h3>List of ready learners</h3>
-        <table id="activeLearners">
-
-                <p><button class="btn btn-primary" id="load" onclick="buttonClicked()">Load</button></p>
-                
+        <table id="activeLearners">                
         </table>
     </div>
 
@@ -62,6 +59,11 @@
 
         //removes item from left side
         var table2 = document.getElementById("activeLearners");
-        table2.deleteRow(id);
+        try {
+            table2.deleteRow(id);
+        }
+        catch (err) {
+            table2.deleteRow(id - 1);
+        }
     }
 </script>

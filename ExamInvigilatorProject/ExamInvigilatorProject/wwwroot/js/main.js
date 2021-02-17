@@ -71,7 +71,7 @@ const getAllPermissions = async () => {
 
 
 // open exam page
-function startExam() {
+function startInvig() {
     window.open("Exam");
 }
 

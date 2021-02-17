@@ -38,7 +38,7 @@ namespace ExamInvigilatorProject.Pages
 
         public List<Learner> learners { get; set; }
 
-        public PartialViewResult OnGetLearnerPartial(int id)
+        public PartialViewResult OnGetLearnerPartial()
         {
             learners = _learnerService.GetAll();
             return Partial("_PartialTable", learners);

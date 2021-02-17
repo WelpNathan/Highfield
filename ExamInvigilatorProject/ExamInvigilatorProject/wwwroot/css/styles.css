@@ -274,7 +274,7 @@ body {
             color: #ffffff;
         }
 
-.forgotform input[type="password"], .login form input[type="text"], .login form input[type="email"] {
+.forgot form input[type="email"] {
     width: 420px;
     height: 50px;
     margin: 0px 15px 20px 0px;

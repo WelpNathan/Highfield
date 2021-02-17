@@ -48,8 +48,8 @@ const permissionsNames = [
 
 const getAllPermissions = async () => {
     const allPermissions = []
-    // We use Promise.all to wait until all the permission queries are resolved
-/*    await Promise.all(
+    //We use Promise.all to wait until all the permission queries are resolved
+    await Promise.all(
         permissionsNames.map(async permissionName => {
             try {
                 let permission
@@ -62,10 +62,13 @@ const getAllPermissions = async () => {
             }
         })
     )
-    return allPermissions*/
-    document.getElementById("readyOverlay").style.display = "block";
+    return allPermissions//
+    
 }
 
+function learnerReady() {
+    document.getElementById("readyOverlay").style.display = "block";
+}
 
 // open exam page
 function startInvig() {

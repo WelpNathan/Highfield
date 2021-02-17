@@ -336,7 +336,7 @@ body {
     padding: 0 15px;
 }
 
-#firstName, #surname {
+.register form #firstName, register form #surname {
     width: 150px;
     height: 50px;
     border: 1px solid #dee0e4;
@@ -345,7 +345,8 @@ body {
 }
 
 
-.register form input[type="email"], #email {
+
+.register form input[type="email"]{
     width: 350px;
     height: 50px;
     border: 1px solid #dee0e4;

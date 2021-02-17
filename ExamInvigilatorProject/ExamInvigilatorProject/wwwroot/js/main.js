@@ -118,6 +118,15 @@ function firstLoad() {
 
 
 function moveLearner(id) {
-    $.post('/LoggedIn/Invigilator?handler=moveLearner', id)
+    //$.post('/LoggedIn/Invigilator?handler=MoveLearner', {id : id})
     //needs finishing to pass data to the handler function.
+
+    $.ajax({
+        traditional: true,
+        type: "POST",
+        url: '/LoggedIn/Invigilator?handler=MoveLearner',
+        data: id,
+        success: ok,
+        dataType: "json"
+    });
 }

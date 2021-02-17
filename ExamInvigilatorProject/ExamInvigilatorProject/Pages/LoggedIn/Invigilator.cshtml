@@ -58,30 +58,24 @@
         button.appendChild(node);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
-        cell1.innerHTML = '<button class="fas fa-arrow-alt-circle-left" type="button" onClick="moveLearnerBack('+id+')">';
+        cell1.innerHTML = '<button class="fas fa-arrow-alt-circle-left" type="button" onClick="moveLearnerBack('+id+ ', ' + name+')">';
         cell2.innerHTML = cells[0].innerText;
         //cell1.innerHTML = <button class="fas fa-arrow-alt-circle-right"></button>;
 
         //removes item from left side
         var table2 = document.getElementById("activeLearners");
         var index = name.rowIndex;
-        try {
-            table2.deleteRow(index);
-        }
-        catch (err) {
-            table2.deleteRow(id - 1);
-        }
+        table2.deleteRow(index);
+
     }
 
 
 
-    function moveLearnerBack(id) {
-        var table2 = document.getElementById("myLearners");
-        try {
-            table2.deleteRow(id);
-        }
-        catch (err) {
-            table2.deleteRow(id - 1);
-        }
+    function moveLearnerBack(id, row) {
+        var table = document.getElementById("myLearners");
+        
+
+        var index = row.rowIndex;
+        table.deleteRow(index);
     }
 </script>

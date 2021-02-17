@@ -72,7 +72,7 @@ const getAllPermissions = async () => {
 
 // open exam page
 function startExam() {
-    window.open("~/pages/LoggedIn/Exam.cstml");
+    window.open("~/pages/LoggedIn/Exam.cshtml");
 }
 
 

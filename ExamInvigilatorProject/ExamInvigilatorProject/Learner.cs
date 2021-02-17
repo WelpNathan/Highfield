@@ -13,11 +13,11 @@ namespace ExamInvigilatorProject
 
         public string time { get; set; }
 
-        public Learner(Guid id, Guid cookieId)
+        public Learner(Guid id)
         {
             this.id = id;
             this.name = editor.getName(id);
-            this.time = editor.getTime(cookieId);
+            this.time = editor.getTime(id);
         }
 
         

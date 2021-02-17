@@ -302,7 +302,7 @@ body {
 
   /*/////////////////////////////////////////// registration form/////////////////////////////////////////*/
   .register {
-    width: 480px;
+    width: 500px;
     background-color: #ffffff;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
     margin: 20px auto;
@@ -329,7 +329,7 @@ body {
     height: 50px;
     background-color: #009FE3;
     color: #ffffff;
-    margin-left: 10px;
+    margin-left: 15px;
   }
 
   .register form select{
@@ -347,14 +347,14 @@ body {
     width: 150px;
     height: 50px;
     border: 1px solid #dee0e4;
-    margin-bottom: 20px;
+    margin-bottom: 0 15px 20px 0;
     padding: 0 15px;
-    margin-right: 15px;
-    float: left;
   }
 
+
+
  .register form input[type="email"] {
-    width: 380px;
+    width: 350px;
     height: 50px;
     border: 1px solid #dee0e4;
     margin-bottom: 20px;
@@ -473,6 +473,10 @@ table{
     text-decoration: none;
     width: 150px;
     margin: auto;
+}
+
+.footer i{
+    margin-right: 8px;
 }
 
 

@@ -13,40 +13,41 @@
 </head>
 
 <body>
-
     <div class="mainContent">
-        <div class="mainContent">
-            <div class="forgot">
-                <h1>I have forgotten my email address</h1>
-                <form asp-page-handler="login" method="post" autocomplete="off">
 
-                    <p>Contact Us</p>
-
-                    <input type="submit" value="Send">
-
-
-                </form>
+        <div class="register">
+            <form asp-page-handler="register" method="post" autocomplete="off">
+                <select id="userType" name="userType">
+                    <option value="learner">Choose Account Type</option>
+                    <option value="learner">Learner</option>
+                    <option value="invigilator">Invigilator</option>
+                </select>
 
 
-            </div>
-            <div class="forgot">
-                <h1>I have forgotten my password</h1>
-                <form asp-page-handler="login" method="post" autocomplete="off">
+                <label for="firstName"><i class="fas fa-user"></i></label>
+                <input type="text" name="firstname" placeholder="First Name" id="firstName" required>
 
-                    <label for="loginemail"><i class="fas fa-envelope"></i></label>
-                    <input type="email" name="requestPass" placeholder="What's your email?">
-
-                    <input type="submit" value="Send">
+                <label for="surname"><i class="fas fa-user"></i></label>
+                <input type="text" name="surname" placeholder="Surname" id="surname" required>
 
 
-                </form>
+                    <label for="email"><i class="fas fa-envelope"></i></label>
+                    <input type="email" name="email" placeholder="Email" id="email" required>                
 
+                <label for="userpassword"><i class="fas fa-lock"></i></label>
+                <input type="password" name="userpassword" placeholder="Password" id="userpassword" required>
 
-            </div>
+                <label for="passwordConfirm"><i class="fas fa-lock"></i></label>
+                <input type="password" name="passwordConfirm" placeholder="Confirm Password" id="passwordConfirm" required>
 
-            </div>
+                <input type="submit" value="Register">
+
+            </form>
+
+        </div>
 
     </div>
 
 </body>
+
 </html>

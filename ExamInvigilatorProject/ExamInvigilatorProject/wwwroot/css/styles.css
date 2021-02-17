@@ -353,7 +353,7 @@ body {
   }
 
  .register form input[type="email"] {
-    width: 400px;
+    width: 380px;
     height: 50px;
     border: 1px solid #dee0e4;
     margin-bottom: 20px;

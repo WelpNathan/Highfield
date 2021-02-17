@@ -8,42 +8,21 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Highfield Education - Exam Invigilation Software Login </title>
-
-    <!-- links and includes-->
-    <link href="~/css/styles.css" rel="stylesheet"/>
-    <link href="~/lib/css/bootstrap/css/dist/bootstrap-grid.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>@ViewData["Title"] </title>
 
 </head>
 
 <body onload="firstLoad()">
 <div class="mainContent">
 
-
-    <h2>Invigilator logged in</h2>
-    |
-    <!--<div class="logout"><button class="logoutBtn">Logout</button></div>-->
+    <h2>Welcome "name"</h2>
 
     <div class="tableSection1">
         <h3>List of ready learners</h3>
         <table id="activeLearners">
 
-
-            <!-- pseudocode
-            int i=0
-            while(i<=numRecords){
-            <tr>
-                <td>NAME (pulled from DB) </td>
-                <td>TIMEof last login (pulled from DB)</td>
-                <td><i class="fas fa-arrow-alt-circle-right"></i></td>
-            </tr>
-            i++;
-            }
-            -->
                 <p><button class="btn btn-primary" id="load" onclick="buttonClicked()">Load</button></p>
-                <div id="grid"></div>
-
+                
         </table>
     </div>
 

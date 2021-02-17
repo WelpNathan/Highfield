@@ -159,20 +159,6 @@ body {
     align-items: center;
   }
 
-.logoutBtn {
-    width: 320px;
-    margin: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    float: right;
-    padding: 8px 16px;
-    font-size: 20px;
-    color: white;
-    background-color: #353434;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 
   /*/////////////////////////////////////// login form///////////////////////////////////////////////////*/
   .login {
@@ -450,7 +436,7 @@ table{
 
   /* ///////////////////////////////////////footer///////////////////////*/
 .footer {
-    background-color: #5C2483;
+    background-color: #353434;
     width: 100%;
     float: left;
     margin-top: 20px;
@@ -718,6 +704,13 @@ table{
 
 
 #learnerPic{
+    width: 80%;
+    padding: 8px;
+    float: left;
+    margin: 8px;
+}
+
+#homerPic {
     width: 80%;
     padding: 8px;
     float: left;

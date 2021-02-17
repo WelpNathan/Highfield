@@ -718,7 +718,8 @@ table{
 
 
 #learnerPic{
-    width: 200px;
+    width: 80%;
+    padding: 8px;
     float: left;
     margin: 8px;
 }

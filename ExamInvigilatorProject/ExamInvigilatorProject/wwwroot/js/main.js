@@ -101,9 +101,23 @@ function startViewing() {
 
 }
 
-function buttonRight(getName , getTime) {
-  
-    var name = document.getElementById(getName).innerText;
-    var time = document.getElementById(getTime).innerText;
+function buttonClicked(id) {
+
+    $(function () {
+        $('#load').on('click', function () {
+            $('#activeLearners').load('/LoggedIn/Invigilator?handler=LearnerPartial');
+        });
+    });
+
+
+}
+
+function firstLoad() {
+    $('#activeLearners').load('/LoggedIn/Invigilator?handler=LearnerPartial');
+}
+
+
+function moveLearner(id) {
+    $.post('/LoggedIn/Invigilator?handler=moveLearner', id)
 
 }

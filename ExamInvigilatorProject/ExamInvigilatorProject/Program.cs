@@ -416,7 +416,7 @@ namespace ExamInvigilatorProject
 
 
 
-        public string[] getName(Guid guid)
+        public string[] getName(Guid? guid)
         {
             cnn.Open();
             string[] name = new string[2];
@@ -484,7 +484,7 @@ namespace ExamInvigilatorProject
             return ids;
         }
 
-        public string getTime(Guid guid)
+        public string getTime(Guid? guid)
         {
             cnn.Open();
             string date = "";

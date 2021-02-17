@@ -126,7 +126,6 @@ function moveLearner(id) {
         type: "POST",
         url: '/LoggedIn/Invigilator?handler=MoveLearner',
         data: id,
-        success: ok,
         dataType: "json"
     });
 }

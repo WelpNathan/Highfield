@@ -49,7 +49,7 @@ const permissionsNames = [
 const getAllPermissions = async () => {
     const allPermissions = []
     // We use Promise.all to wait until all the permission queries are resolved
-    await Promise.all(
+/*    await Promise.all(
         permissionsNames.map(async permissionName => {
             try {
                 let permission
@@ -62,7 +62,7 @@ const getAllPermissions = async () => {
             }
         })
     )
-    return allPermissions
+    return allPermissions*/
     document.getElementById("readyOverlay").style.display = "block";
 }
 

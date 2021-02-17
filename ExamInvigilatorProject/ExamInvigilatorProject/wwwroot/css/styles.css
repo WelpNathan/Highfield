@@ -716,6 +716,10 @@ table{
       margin: 2px;
     }
 
-  
 
+#learnerPic{
+    width: 200px;
+    float: left;
+    margin: 8px;
+}
   

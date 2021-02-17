@@ -18,6 +18,13 @@
         <div class="tableSection1">
             <h3>Text Here - explaining the process</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+
+            <div class="actionBtn">
+                <form asp-page-handler="button" method="post">
+                    <button onclick="getAllPermissions()" id="startBtnLearner">I Am Ready</button>
+                </form>
+            </div>
+
         </div>
 
         <div class="tableSection2">
@@ -25,10 +32,10 @@
 
         </div>
 
-        <div class="actionBtn">
-            <form asp-page-handler="button" method="post">
-                <button onclick="getAllPermissions()" id="startBtnLearner">I Am Ready</button>
-            </form>
+        <div id="readyOverlay">
+            <h2>Text will go here</h2>
         </div>
+
+
     </div>
 </body>

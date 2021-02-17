@@ -40,10 +40,6 @@ navHighlight('.mainNav ul li a', 'index.html', 'current');
 
 //on click of learner "ready" button: grant permission to view camera and screen
 
-
-
-
-
 //grant camera and mic permissions.
 const permissionsNames = [
     "camera",
@@ -67,6 +63,7 @@ const getAllPermissions = async () => {
         })
     )
     return allPermissions
+    document.getElementById("readyOverlay").style.display = "block";
 }
 
 

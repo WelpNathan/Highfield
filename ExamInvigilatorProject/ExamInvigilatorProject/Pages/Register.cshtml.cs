@@ -25,7 +25,6 @@ namespace ExamInvigilatorProject.Pages
         public void OnPostRegister()
         {
             dbEdit editor = new dbEdit();
-            char role = 'C';
             var emailAddress = Request.Form["email"];
             var userpassword = Request.Form["userpassword"];
             var confirm = Request.Form["passwordConfirm"];
@@ -40,14 +39,14 @@ namespace ExamInvigilatorProject.Pages
 
             //end of binding
 
-
-            if(roled == "learner")
+            string role = "UNDEFINED";
+            if (roled == "learner")
             {
-                role = 'C';
+                role = "LEARNER";
             }
             else if (roled == "invigilator")
             {
-                role = 'I';
+                role = "INVIGILATOR";
             }
 
             if(userpassword == confirm)

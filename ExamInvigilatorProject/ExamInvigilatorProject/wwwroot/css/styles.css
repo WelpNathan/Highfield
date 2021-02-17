@@ -105,10 +105,6 @@ body {
   top: 0;
 }
 
-.topnav a.webicon {
-  display: none;
-
-}
 
 .topnav a:hover {
   background-color: #5C2483;
@@ -163,10 +159,24 @@ body {
     align-items: center;
   }
 
+.logoutBtn {
+    width: 320px;
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    padding: 8px 16px;
+    font-size: 20px;
+    color: white;
+    background-color: #353434;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 
   /*/////////////////////////////////////// login form///////////////////////////////////////////////////*/
   .login {
-    width: 300px;
+    width: 500px;
     background-color: #ffffff;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
     margin: 20px auto;
@@ -221,7 +231,7 @@ body {
 
   /*/////////////////////////////////////////// registration form/////////////////////////////////////////*/
   .register {
-    width: 520px;
+    width: 500px;
     background-color: #ffffff;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
     margin: 20px auto;
@@ -239,6 +249,7 @@ body {
     justify-content: center;
     padding-top: 20px;
   }
+
   .register form label {
     display: flex;
     justify-content: center;
@@ -247,32 +258,36 @@ body {
     height: 50px;
     background-color: #009FE3;
     color: #ffffff;
+    margin-left: 10px;
   }
 
   .register form select{
-    width: 500px;
+    width: 450px;
     height: 50px;
     border: 1px solid #dee0e4;
     margin-bottom: 20px;
     padding: 0 15px;
     background-color: #dddada;
     color: rgb(77, 77, 77);
+    margin-right: 10px;
   }
 
   .register form input[type="password"], .register form input[type="text"] {
-    width: 200px;
+    width: 160px;
     height: 50px;
     border: 1px solid #dee0e4;
     margin-bottom: 20px;
     padding: 0 15px;
+    margin-right: 15px;
   }
 
  .register form input[type="email"] {
-    width: 450px;
+    width: 400px;
     height: 50px;
     border: 1px solid #dee0e4;
     margin-bottom: 20px;
     padding: 0 15px;
+    margin-right: 8px;
   }
 
   .register form input[type="submit"] {
@@ -366,19 +381,28 @@ table{
 
   /* ///////////////////////////////////////footer///////////////////////*/
 .footer {
-    background-color: #7e7e7e;
+    background-color: #5C2483;
     width: 100%;
     float: left;
     margin-top: 20px;
-
+    padding: 4px;
 }
 
-.footer p {
-   color: #f1f1f1;
-   text-align: right;
-   padding-right: 40px;
-   padding: 8px;
+.footerItem {
+    width: 20%;
+    margin: 16px, 16px;
+    padding: 8px;
+    float: left;
 }
+
+.footer a, .footer i{
+    color: #f1f1f1;
+    text-align: right;
+    text-decoration: none;
+    width: 150px;
+    margin: auto;
+}
+
 
   /* ////////////////////////////////////////// Exam Pages///////////////////////*/
   .leftPanel{

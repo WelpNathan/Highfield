@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Text;
 using System.Collections;
+using System.ComponentModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -320,16 +321,17 @@ namespace ExamInvigilatorProject
         }
 
 
-        public bool register(string email, string firstName, string LastName, string password, byte[] salt, char role)
+        public bool register(string email, string firstName, string LastName, string password, byte[] salt, string role)
         {
             try
             {
                 cnn.Open();
 
-                string register = "INSERT INTO dbo.tblLogins(Id, Email, FirstName, LastName, PasswordHash, PasswordSalt, Role, IsReady) VALUES(@Id, @email, @FirstName, @LastName, @PasswordHash, @PasswordSalt, @Role, @IsReady)";
+                string register = "INSERT INTO dbo.tblLogins(Id, Email, FirstName, LastName, PasswordHash, PasswordSalt, IsReady) VALUES(@Id, @email, @FirstName, @LastName, @PasswordHash, @PasswordSalt, @IsReady)";
 
                 Guid guid = Guid.NewGuid();
 
+                // create base account
                 using (SqlCommand cmd = new SqlCommand(register, cnn))
                 {
                     // Prepare and Bind Parameters
@@ -340,16 +342,27 @@ namespace ExamInvigilatorProject
                     cmd.Parameters.AddWithValue("@LastName", LastName);
                     cmd.Parameters.AddWithValue("@PasswordHash", hashPassword(password, salt));
                     cmd.Parameters.AddWithValue("@PasswordSalt", Convert.ToBase64String(salt));
-                    cmd.Parameters.AddWithValue("@Role", role);
                     cmd.Parameters.AddWithValue("@IsReady", 0);
                     cmd.ExecuteNonQuery();
                 }
+
+                // create role
+                var roleSql = "INSERT INTO dbo.tblRoles(LoginId, RoleName) VALUES(@Id, @Role)";
+
+                using (SqlCommand cmd = new SqlCommand(roleSql, cnn))
+                {
+                    cmd.Parameters.AddWithValue("@Id", guid);
+                    cmd.Parameters.AddWithValue("@Role", role.ToUpper());
+                    cmd.ExecuteNonQuery();
+                }
+
                 cnn.Close();
                 return true;
             }
-            catch (SqlException)
+            catch (SqlException exception)
             {
                 cnn.Close();
+                Console.WriteLine(exception);
                 return false;
             }
             
@@ -358,18 +371,19 @@ namespace ExamInvigilatorProject
 
         public string getRole(string givenEmail)
         {
+            var id = GetIdFromEmail(givenEmail);
+
             cnn.Open();
             string roled = "C";
-            string role = "SELECT Role FROM dbo.tblLogins WHERE Email = @givenEmail";
+            string role = "SELECT RoleName FROM dbo.tblRoles WHERE LoginId = @Id";
             using (SqlCommand cmd = new SqlCommand(role, cnn))
             {
-                cmd.Parameters.AddWithValue("@givenEmail", givenEmail);
+                cmd.Parameters.AddWithValue("@Id", id.ToString());
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        roled = reader["Role"].ToString();
-
+                        roled = reader["RoleName"].ToString();
                     }
 
                 }

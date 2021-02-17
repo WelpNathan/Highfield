@@ -119,5 +119,5 @@ function firstLoad() {
 
 function moveLearner(id) {
     $.post('/LoggedIn/Invigilator?handler=moveLearner', id)
-
+    //needs finishing to pass data to the handler function.
 }

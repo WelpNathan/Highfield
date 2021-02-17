@@ -711,6 +711,7 @@ table{
 #homePic {
     float: left;
     margin: 8px;
+    width: 100%;
 }
 
 #readyOverlay {

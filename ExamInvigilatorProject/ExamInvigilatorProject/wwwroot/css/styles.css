@@ -343,13 +343,15 @@ body {
     margin-right: 10px;
   }
 
-  .register form input[type="password"], .register form input[type="text"] {
+  .register form input[type="password"], .register form input[type="text"], #firstName, #surname {
     width: 150px;
     height: 50px;
     border: 1px solid #dee0e4;
     margin-bottom: 0 15px 20px 0;
     padding: 0 15px;
   }
+
+
 
 
 

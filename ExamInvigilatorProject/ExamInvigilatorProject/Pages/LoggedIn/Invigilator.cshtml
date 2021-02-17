@@ -1,31 +1,20 @@
 ﻿@page
 @model InvigilatorModel
 @{
-    ViewData["Title"] = "Logged In - Invigilator";
+    ViewData["Title"] = "Invigilator Home";
 
 }
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Highfield Education - Exam Invigilation Software Login </title>
-
-    <!-- links and includes-->
-    <link href="~/css/styles.css" rel="stylesheet" />
-    <link href="~/lib/css/bootstrap/css/dist/bootstrap-grid.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
 <body onload="firstLoad()">
 
-
     <div class="mainContent">
-
-
-        <h2>Invigilator logged in</h2>
-        
-        <!--<div class="logout"><button class="logoutBtn">Logout</button></div>-->
+        <h2>Welcome Name</h2> <!--Pull from db-->
 
         <div class="tableSection1">
             <h3>List of ready learners</h3>
@@ -33,21 +22,21 @@
 
 
                 <!-- pseudocode
-    int i=0
-    while(i<=numRecords){
-        <tr>
-            <td>NAME (pulled from DB) </td>
-            <td>TIMEof last login (pulled from DB)</td>
-            <td><i class="fas fa-arrow-alt-circle-right"></i></td>
-        </tr>
-        i++;
-    }
-    -->
-        <p><button class="btn btn-primary" id="load" onclick="buttonClicked()">Load</button></p>
-        <div id="grid"></div>
+            int i=0
+            while(i<=numRecords){
+                <tr>
+                    <td>NAME (pulled from DB) </td>
+                    <td>TIMEof last login (pulled from DB)</td>
+                    <td><i class="fas fa-arrow-alt-circle-right"></i></td>
+                </tr>
+                i++;
+            }
+            -->
+                <p><button class="btn btn-primary" id="load" onclick="buttonClicked()">Load</button></p>
+                <div id="grid"></div>
 
-        </table>
-    </div>
+            </table>
+        </div>
 
         <!-- myList[] array created with id's of chosen students (if none selected, = 0's) -->
         <div class="tableSection2">
@@ -57,14 +46,14 @@
                     <th></th>
                     <th>Student Name</th>
                 </tr>
-                
-                    <tr>
 
-                        <td></td>
-                            <td><button class="fas fa-arrow-alt-circle-right"></button></td>
-                            <!----<i class="fas fa-arrow-alt-circle-right"></i>-->
-                    </tr>
-                
+                <tr>
+
+                    <td></td>
+                    <td><button class="fas fa-arrow-alt-circle-right"></button></td>
+                    <!----<i class="fas fa-arrow-alt-circle-right"></i>-->
+                </tr>
+
                 <tr>
                     <td><!-- if myList[1]>0, show <i class="fas fa-arrow-alt-circle-left"></i> --></td>
                     <td><!-- if myList[1]>0, lookup learner Name from DB using ID --></td>
@@ -82,7 +71,7 @@
         </div>
 
         <div class="actionBtn">
-                <button onclick="startExam()" class="startBtn">Start Invigilation</button>
+            <button onclick="startExam()" class="startBtn">Start Invigilation</button>
             <!-- on click load exam page passing myLIst[] array values -->
         </div>
 

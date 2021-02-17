@@ -18,7 +18,7 @@ namespace ExamInvigilatorProject.Pages
         public dbEdit editor = new dbEdit();
         public List<Guid> sessions;
         public List<Guid> ids;
-        public List<learner> learners;
+
         public List<learner> chosenLearners;
         public bool firstLoad = true;
 
@@ -29,63 +29,26 @@ namespace ExamInvigilatorProject.Pages
         }
 
         private readonly ILogger<InvigilatorModel> _logger;
+        private ILearnerService _learnerService;
 
-        public InvigilatorModel(ILogger<InvigilatorModel> logger)
+        public InvigilatorModel(ILearnerService learnerService)
         {
-            _logger = logger;
+            _learnerService = learnerService;
         }
 
-        public void OnGet()
-        {
+        public List<Learner> learners { get; set; }
 
+        public PartialViewResult OnGetLearnerPartial(int id)
+        {
+            learners = _learnerService.GetAll();
+            return Partial("_PartialTable", learners);
         }
 
-
-        public void OnGetSelect()
+        public void OnPostMoveLearner(int id)
         {
-            string test = "ts";
+            string test = "test";
         }
-
-        private List<string[]> getNames()
-        {
-            List<string[]> names = new List<string[]>();
-            //ids = editor.getAllIds();
-            for (int i = 0; i < ids.Count; i++)
-            {
-                names.Add(editor.getName(ids[i]));
-            }
-            return names;
-
-        }
-
-        private List<string> getTimes()
-        {
-            List<string> times = new List<string>();
-            //ids = editor.getAllIds();
-            for (int i = 0; i < sessions.Count; i++)
-            {
-                times.Add(editor.getTime(sessions[i]));
-            }
-            return times;
-        }
-
-        public List<learner> GetLearners()
-        {
-            List<learner> learners = new List<learner>();
-            List<string[]> names = getNames();
-            List<string> times = getTimes();
-
-            for(int i = 0; i < names.Count; i++)
-            {
-                learner temp = new learner();
-                temp.name = names[i];
-                temp.time = times[i];
-                learners.Add(temp);
-
-            }
-
-            return learners;
-        }
+       
         
     }
 }

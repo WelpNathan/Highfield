@@ -1,0 +1,26 @@
+﻿@model List<Learner>
+
+@{
+    int i = 0;
+}
+<tr>
+    <th>Student Name</th>
+    <th>Time Logged In</th>
+    <th>Add</th>
+</tr>
+
+@foreach (Learner learner in Model)
+
+{
+
+    <tr>
+        <td>@learner.name[0]</td>
+        <td>@learner.time</td>
+        <td>
+            <button class="fas fa-arrow-alt-circle-right" onclick="moveLearner(@i.ToString())"></button>
+        </td>
+
+        @{i++;}
+        <!----<i class="fas fa-arrow-alt-circle-right"></i>-->
+    </tr>
+}

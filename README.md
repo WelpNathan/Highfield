@@ -4,7 +4,7 @@ NEEDS FINALISING.
 
 <p align="center">
 	<img src="https://img.shields.io/github/license/welpnathan/highfield?style=for-the-badge" />
-	<img src="https://img.shields.io/github/workflow/status/WelpNathan/Highfield/remote%20ssh%20command?style=for-the-badge" />
+	<img src="https://img.shields.io/github/workflow/status/welpnathan/highfield/AWS%20Continuous%20Delivery?style=for-the-badge" />
 	<img src="https://img.shields.io/github/contributors/welpnathan/highfield?style=for-the-badge" />
 </p>
 
@@ -13,6 +13,8 @@ This is home to the Highfield Qualification's Webcam Invigilation project made i
 This repository hosts:
 - Source code
 - Nginx proxy configuration
+- Linux systemd configuration
+- Github action for continuous delivery
 - Images including Highfield Qualification Logo's (all rights reserved)
 
 ## Quickstart

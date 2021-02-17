@@ -2,10 +2,6 @@
 @model InvigilatorModel
 @{
     ViewData["Title"] = "Logged In - Invigilator";
-    Model.sessions = Model.editor.getAllSessionIds();
-    Model.ids = Model.editor.getAllAccountIds();
-    Model.learners = Model.GetLearners();
-    Model.chosenLearners = new List<InvigilatorModel.learner>();
 
 }
 
@@ -21,7 +17,7 @@
 
 </head>
 
-<body>
+<body onload="firstLoad()">
 
 
     <div class="mainContent">
@@ -33,25 +29,23 @@
         <div class="tableSection1">
             <h3>List of ready learners</h3>
             <table id="activeLearners">
-                <tr>
-                    <th>Student Name</th>
-                    <th>Time Logged In</th>  
-                    <th>Add</th>
-                </tr>
+                
 
                 <!-- pseudocode
-                int i=0
-                while(i<=numRecords){
-                    <tr>
-                        <td>NAME (pulled from DB) </td>
-                        <td>TIMEof last login (pulled from DB)</td>
-                        <td><i class="fas fa-arrow-alt-circle-right"></i></td>
-                    </tr>
-                    i++;
-                }
-                -->
-                <partial name="PartialTable"/>
-            </table>
+    int i=0
+    while(i<=numRecords){
+        <tr>
+            <td>NAME (pulled from DB) </td>
+            <td>TIMEof last login (pulled from DB)</td>
+            <td><i class="fas fa-arrow-alt-circle-right"></i></td>
+        </tr>
+        i++;
+    }
+    -->
+                <p><button class="btn btn-primary" id="load" onclick="buttonClicked()">Load</button></p>
+                <div id="grid"></div>
+                
+                </table>
         </div>
 
         <!-- myList[] array created with id's of chosen students (if none selected, = 0's) -->
@@ -62,11 +56,10 @@
                     <th></th>
                     <th>Student Name</th>
                 </tr>
-                @for (int i = 0; i < Model.chosenLearners.Count(); i++)
-                {
+                
                     <tr>
 
-                        <td id="@Model.chosenLearners">@Model.chosenLearners[i].name[0] @Model.chosenLearners[i].name[0]</td>
+                        <td></td>
                             <td><button class="fas fa-arrow-alt-circle-right"></button></td>
                             <!----<i class="fas fa-arrow-alt-circle-right"></i>-->
                     </tr>
@@ -98,7 +91,4 @@
 
     </div>
 
-    @{//<script src =" ../../js/"></script>
-    
-     }
 </body>

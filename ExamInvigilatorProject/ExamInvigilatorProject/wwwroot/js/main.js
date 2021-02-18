@@ -71,15 +71,7 @@ function learnerReady() {
 }
 
 // open exam page
-function startInvig() {
-    var table = document.getElementById("myLearners");
-    var tempIds = table.getElementsByTagName("tr");
-    var ids = [];
-    for (var i = 1; i < tempIds.length; i++) {
-        ids.push(tempIds[i].id)
-    }
-  
-}
+
 
 
 

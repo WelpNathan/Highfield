@@ -65,8 +65,8 @@ namespace ExamInvigilatorProject.Pages
                     else
                     {
                         //editor.logLogin(emailAddress);
-                        
-                        Response.Redirect("LoggedIn/Learner");
+                        return RedirectToPage("LoggedIn/Learner", "Start", new { id = editor.GetIdFromEmail(emailAddress) });
+                        //Response.Redirect("LoggedIn/Learner");
                         //Student redirect.
                     }
                 }

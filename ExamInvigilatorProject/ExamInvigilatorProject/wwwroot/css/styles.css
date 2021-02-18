@@ -226,7 +226,10 @@ body {
     text-decoration: none;
 }
 
-
+.login form  p{
+    margin: 2px 15px;
+    padding: 5px;
+}
 
 
   /*/////////////////////////////////////////// registration form/////////////////////////////////////////*/

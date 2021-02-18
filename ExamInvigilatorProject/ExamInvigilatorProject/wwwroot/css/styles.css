@@ -336,7 +336,7 @@ body {
     padding: 0 15px;
 }
 
-.register form #firstName, register form #surname {
+.register #firstName, register #surname {
     width: 150px;
     height: 50px;
     border: 1px solid #dee0e4;

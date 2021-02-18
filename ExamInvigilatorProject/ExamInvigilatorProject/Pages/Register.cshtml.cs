@@ -46,6 +46,7 @@ namespace ExamInvigilatorProject.Pages
             {
                 byte[] salt = editor.generateSalt();
                 success = editor.register(emailAddress, firstName, lastName, userpassword, salt, role);
+                Response.Redirect("/Login");
             }
 
         }

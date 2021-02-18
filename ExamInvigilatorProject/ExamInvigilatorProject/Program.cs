@@ -99,6 +99,8 @@ namespace ExamInvigilatorProject
         static string connetionString = "Server = localhost; Database = exam_db; User Id = SA; Password = strong!123";
         SqlConnection cnn = new SqlConnection(connetionString);
 
+        public object Response { get; private set; }
+
         public void AddNewNote(string examId, string notes)
         {
             cnn.Open();
@@ -357,7 +359,8 @@ namespace ExamInvigilatorProject
                 }
 
                 cnn.Close();
-                return true;               
+                return true;
+                //once registered return to login page.
 
 
             }

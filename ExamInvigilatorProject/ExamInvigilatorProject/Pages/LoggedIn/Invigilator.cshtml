@@ -2,7 +2,7 @@
 @model InvigilatorModel
 @{
     ViewData["Title"] = "Logged In - Invigilator";
-    ViewData["firstName"] = "Name"; //pull name from Db from logged in user
+    ViewData["firstName"] = Model.currentUserName[0] + ' ' + Model.currentUserName[1]; //pull name from Db from logged in user
 
 }
 

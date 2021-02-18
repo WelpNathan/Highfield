@@ -19,6 +19,8 @@ namespace ExamInvigilatorProject.Pages
         public dbEdit editor = new dbEdit();
         public List<Guid> sessions;
         public List<Guid> ids;
+        private Guid currentUserId;
+        public string[] currentUserName;
 
         public List<learner> chosenLearners;
         public bool firstLoad = true;
@@ -59,6 +61,12 @@ namespace ExamInvigilatorProject.Pages
             return RedirectToPage("Exam", "Start", new {learnerIds = result});
         }
        
+
+        public void OnGetStart(Guid id)
+        {
+            this.currentUserId = id;
+            currentUserName = editor.getName(currentUserId);
+        }
         
     }
 }

@@ -376,8 +376,15 @@ namespace ExamInvigilatorProject
 
         public string getRole(string givenEmail)
         {
-            var id = GetIdFromEmail(givenEmail);
+            Guid? id = GetIdFromEmail(givenEmail);
 
+            return getRoleWithId(id);
+
+
+        }
+
+        public string getRoleWithId(Guid? id)
+        {
             cnn.Open();
             string roled = "C";
             string role = "SELECT RoleName FROM dbo.tblRoles WHERE LoginId = @Id";

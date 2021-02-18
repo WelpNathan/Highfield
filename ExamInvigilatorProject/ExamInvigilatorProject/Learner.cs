@@ -16,6 +16,9 @@ namespace ExamInvigilatorProject
         public Learner(Guid id, Guid cookieId)
         {
             this.id = id;
+
+
+
             this.name = editor.getName(id);
             this.time = editor.getTime(cookieId);
         }

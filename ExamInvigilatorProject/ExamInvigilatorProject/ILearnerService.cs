@@ -29,10 +29,8 @@ namespace ExamInvigilatorProject
 
             for (int i = 0; i < ids.Count; i++)
             {
-                if (editor.getRole(ids[i]) == "LEARNER")
+                if (editor.getRoleWithId(ids[i]) == "LEARNER")
                 {
-
-
                     Learner learner = new Learner(ids[i], cookies[i]);
                     learners.Add(learner);
                 }

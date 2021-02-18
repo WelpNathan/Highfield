@@ -2,6 +2,7 @@
 @model InvigilatorModel
 @{
     ViewData["Title"] = "Logged In - Invigilator";
+    ViewData["firstName"] = "Name"; //pull name from Db from logged in user
 
 }
 
@@ -15,7 +16,7 @@
 <body onload="firstLoad()">
 <div class="mainContent">
 
-    <h2>Welcome "name"</h2>
+    <h2>Welcome @ViewData["firstName"]</h2>
 
     <div class="tableSection1">
         <h3>List of ready learners</h3>

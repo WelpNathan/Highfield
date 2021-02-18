@@ -3,6 +3,7 @@
 @model LearnerModel
 @{
     ViewData["Title"] = "Logged In - Learner";
+    ViewData["firstName"] = "Name"; //pull name from Db from logged in user
 }
 
 
@@ -13,7 +14,7 @@
 
 <body>
     <div class="mainContent">
-        <h2>Welcome "name"</h2>
+        <h2>Welcome @ViewData["firstName"]</h2>
 
         <div class="tableSection1">
             <h3>Text Here - explaining the process</h3>
@@ -35,7 +36,7 @@
             <h1>Please Wait...</h1>
             <h3>You are now being matched with an invigilator.</h3>
             <h3>Once This process is complete you will be automatically taken to the virtual exam room</h3>
-            
+
             <div class="learnerLoader"<!-- Animated loading wheel --></div>
         </div>
 

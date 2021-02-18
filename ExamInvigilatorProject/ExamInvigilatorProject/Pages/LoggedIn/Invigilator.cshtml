@@ -7,44 +7,44 @@
 }
 
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewData["Title"] </title>
 
 </head>
 
 <body onload="firstLoad()">
-<div class="mainContent">
+    <div class="mainContent">
 
-    <h2>Welcome @ViewData["firstName"]</h2>
+        <h2>Welcome @ViewData["firstName"]</h2>
 
-    <div class="tableSection1">
-        <h3>List of ready learners</h3>
-        <table id="activeLearners">                
-        </table>
+        <div class="tableSection1">
+            <h3>List of ready learners</h3>
+            <table id="activeLearners">
+            </table>
+        </div>
+
+        <!-- myList[] array created with id's of chosen students (if none selected, = 0's) -->
+        <div class="tableSection2">
+            <h3>My Observation List</h3>
+            <table id="myLearners">
+                <tr>
+                    <th>Remove</th>
+                    <th>Student Name</th>
+                    <th>Time Logged In</th>
+                </tr>
+            </table>
+            <!-- Arrows: on click - set specific array value to 0. -->
+        </div>
+
+        <div class="actionBtn">
+            <button class="startBtn" onclick="startInvig()">Start Invigilation</button>
+                <!-- on click load exam page passing myLIst[] array values -->
+        </div>
+
+
+
     </div>
-
-    <!-- myList[] array created with id's of chosen students (if none selected, = 0's) -->
-    <div class="tableSection2">
-        <h3>My Observation List</h3>
-        <table id="myLearners">
-            <tr>
-                <th>Remove</th>
-                <th>Student Name</th>
-                <th>Time Logged In</th>
-            </tr>
-        </table>
-        <!-- Arrows: on click - set specific array value to 0. -->
-    </div>
-
-    <div class="actionBtn">
-        <button class="startBtn" onclick="startInvig()">Start Invigilation</button>
-        <!-- on click load exam page passing myLIst[] array values -->
-    </div>
-
-
-
-</div>
 
 </body>
 
@@ -63,7 +63,7 @@
             var cell2 = row.insertCell(1);
             var cell3 = row.insertCell(2);
             cell2.parentNode.id = id;
-            cell1.innerHTML = '<button class="fas fa-arrow-alt-circle-left" type="button" onClick="moveLearnerBack('+ "'" + id + "'" + ')"></button>';
+            cell1.innerHTML = '<button class="fas fa-arrow-alt-circle-left" type="button" onClick="moveLearnerBack(' + "'" + id + "'" + ')"></button>';
             cell2.innerHTML = cells[0].innerText;
             cell3.innerHTML = cells[1].innerText;
 
@@ -100,4 +100,37 @@
         var index = name.rowIndex;
         table2.deleteRow(index);
     }
+
+    function startInvig() {
+        var table = document.getElementById("myLearners");
+        var tempIds = table.getElementsByTagName("tr");
+        var ids = [];
+        for (var i = 1; i < tempIds.length; i++) {
+            ids.push(tempIds[i].id)
+        }
+
+        var myJSON = JSON.stringify(ids);
+
+        $.ajax({
+            type: 'POST',
+            contentType: 'application/x-www-form-urlencoded',
+            url: "/LoggedIn/Invigilator?handler=Selected",
+            data: {ids : myJSON},
+            headers: {
+                RequestVerificationToken: gettoken()
+            }
+        })
+    }
+
+    function gettoken() {
+        var token = '@Html.AntiForgeryToken()';
+        token = $(token).val();
+        return token;
+   }
+
+
+
+
+
+
 </script>

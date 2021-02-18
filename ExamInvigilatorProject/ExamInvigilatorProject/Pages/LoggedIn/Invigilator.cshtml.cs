@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace ExamInvigilatorProject.Pages
 {
@@ -31,9 +32,10 @@ namespace ExamInvigilatorProject.Pages
         private readonly ILogger<InvigilatorModel> _logger;
         private ILearnerService _learnerService;
 
-        public InvigilatorModel(ILearnerService learnerService)
+        public InvigilatorModel(ILearnerService learnerService, ILogger<InvigilatorModel> logger)
         {
             _learnerService = learnerService;
+            _logger = logger;
         }
 
         public List<Learner> learners { get; set; }
@@ -44,9 +46,10 @@ namespace ExamInvigilatorProject.Pages
             return Partial("_PartialTable", learners);
         }
 
-        public void OnPost(string[] ids)
+        public void OnPostSelected(string ids)
         {
-            string test = "test";
+            List<string> result = JsonConvert.DeserializeObject<List<string>>(ids);
+            Response.Redirect("learner", false);
         }
        
         

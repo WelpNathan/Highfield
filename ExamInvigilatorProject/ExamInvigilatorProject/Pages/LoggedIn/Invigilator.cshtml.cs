@@ -44,7 +44,7 @@ namespace ExamInvigilatorProject.Pages
             return Partial("_PartialTable", learners);
         }
 
-        public void OnPostMoveLearner(int id)
+        public void OnPost(string[] ids)
         {
             string test = "test";
         }

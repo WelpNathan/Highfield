@@ -1,7 +1,7 @@
 ﻿@model List<Learner>
 
 @{
-    int i = 1;
+
 }
 <tr>
     <th>Student Name</th>
@@ -13,18 +13,18 @@
 
 {
 
-    <tr id="@i">
+    <tr id="@learner.id">
         <td>@learner.name[0] @learner.name[1]</td>
         <td>@learner.time</td>
         <td>
-            <button class="fas fa-arrow-alt-circle-right" onclick="moveLearner(@i.ToString())"></button>
+            <button class="fas fa-arrow-alt-circle-right" onclick="moveLearner('@learner.id.ToString()')"></button>
         </td>
 
 
         <!----<i class="fas fa-arrow-alt-circle-right"></i>-->
     </tr>
    
-    i++; 
+
     
 }
 

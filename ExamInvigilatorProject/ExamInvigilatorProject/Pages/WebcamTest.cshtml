@@ -8,17 +8,26 @@
     <title></title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/css/webcamtest.css" rel="stylesheet" />
 </head>
 
 <body>
-    <!-- Add your site or application content here -->
-    <p>Hello world! This is HTML5 Boilerplate.</p>
-    <script src="js/main.js"></script>
+<p>
+    This example shows you the contents of the selected part of your
+    display. Click the Start Capture button to begin.
+</p>
 
-    <!--Vanilla HTML5 Videoport-->
-    <video id="video" width="640" height="480" autoplay></video>
-    <button id="snap">This is a webcam</button>
-    <canvas id="canvas" width="640" height="480"></canvas>
+<p>
+    <button id="start">Start Capture</button>&nbsp;<button id="stop">
+        Stop Capture
+    </button>
+</p>
 
-    <script src="/js/webcamtest.js"></script>
+<video id="video" autoplay></video>
+<br />
+
+<strong>Log:</strong>
+<br />
+<pre id="log"></pre>
+<script src="~/js/webcamtest.js"></script>
 </body>

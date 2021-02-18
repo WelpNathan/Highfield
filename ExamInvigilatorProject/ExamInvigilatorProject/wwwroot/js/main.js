@@ -78,7 +78,7 @@ function startInvig() {
     for (var i = 1; i < tempIds.length; i++) {
         ids.push(tempIds[i].id)
     }
-  
+    window.open(exam, '_blank');
 }
 
 

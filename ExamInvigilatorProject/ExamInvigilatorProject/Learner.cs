@@ -9,7 +9,7 @@ namespace ExamInvigilatorProject
     {
         dbEdit editor = new dbEdit();
         public string[] name { get; set; }
-        private Guid? id { get; set; }
+        public Guid? id { get; set; }
 
         public string time { get; set; }
 

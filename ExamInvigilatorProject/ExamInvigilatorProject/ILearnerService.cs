@@ -27,12 +27,16 @@ namespace ExamInvigilatorProject
             ids = editor.getAllAccountIds();
             cookies = editor.getAllSessionIds();
 
-            for(int i = 0; i < ids.Count; i++)
+            for (int i = 0; i < ids.Count; i++)
             {
-                Learner learner = new Learner(ids[i], cookies[i]);
-                learners.Add(learner);
-            }
+                if (editor.getRole(ids[i]) == "LEARNER")
+                {
 
+
+                    Learner learner = new Learner(ids[i], cookies[i]);
+                    learners.Add(learner);
+                }
+            }
             return learners;
            
         }

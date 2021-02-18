@@ -226,64 +226,7 @@ body {
     text-decoration: none;
 }
 
-.forgot {
-    width: 500px;
-    background-color: #ffffff;
-    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
-    margin: 20px auto;
-    float: left;
-    margin: 20px 20px 0px 20px;
-}
 
-    .forgot h1 {
-        text-align: center;
-        color: #353434;
-        font-size: 24px;
-        padding: 20px 0 20px 0;
-        border-bottom: 1px solid #dee0e4;
-    }
-
-    .forgot form {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding-top: 20px;
-    }
-
-    .forgot form label {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 50px;
-        height: 50px;
-        background-color: #009FE3;
-        color: #ffffff;
-    }
-
-.forgot form input[type="email"] {
-    width: 400px;
-    height: 50px;
-    margin: 0px 15px 20px 0px;
-    padding: 0 15px;
-}
-
-.forgot form input[type="submit"] {
-    width: 100%;
-    padding: 15px;
-    margin-top: 20px;
-    background-color: #009FE3;
-    border: 0;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 20px;
-    color: #ffffff;
-    transition: background-color 0.2s;
-}
-
-    .forgot form input[type="submit"]:hover {
-        background-color: #066b96;
-        transition: background-color 0.2s;
-    }
 
 
   /*/////////////////////////////////////////// registration form/////////////////////////////////////////*/

@@ -42,11 +42,10 @@ namespace ExamInvigilatorProject.Pages
                 role = "INVIGILATOR";
             }
 
-            if(userpassword == confirm)
+            if (userpassword == confirm)
             {
                 byte[] salt = editor.generateSalt();
                 success = editor.register(emailAddress, firstName, lastName, userpassword, salt, role);
-                
             }
 
         }

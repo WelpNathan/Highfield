@@ -37,10 +37,8 @@
             <!-- Arrows: on click - set specific array value to 0. -->
         </div>
 
-        <div class="actionBtn">
-            <form method="post">
-                <button class="startBtn">Start Invigilation</button>
-            </form>
+        <div class="actionBtn">    
+            <button class="startBtn" onclick="startInvig()">Start Invigilation</button>
         </div>         
 
 
@@ -119,8 +117,13 @@
             data: {ids : myJSON},
             headers: {
                 RequestVerificationToken: gettoken()
+            },
+            success: function () {
+                window.open("exam", '_self');
             }
         })
+        //sleep(100);
+        
     }
 
     function gettoken() {
@@ -130,7 +133,13 @@
    }
 
 
-
+    function sleep(milliseconds) {
+        const date = Date.now();
+        let currentDate = null;
+        do {
+            currentDate = Date.now();
+        } while (currentDate - date < milliseconds);
+    }
 
 
 

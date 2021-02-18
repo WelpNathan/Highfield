@@ -30,6 +30,7 @@ namespace ExamInvigilatorProject
         {
             services.AddMvc();
             services.AddTransient<ILearnerService, LearnerService>();
+            services.AddHttpContextAccessor();
             services.AddRazorPages();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie();

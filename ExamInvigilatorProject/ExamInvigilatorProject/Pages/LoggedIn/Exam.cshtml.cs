@@ -11,14 +11,17 @@ namespace ExamInvigilatorProject.Pages
     public class ExamModel : PageModel
     {
         private readonly ILogger<ExamModel> _logger;
-
-        public ExamModel(ILogger<ExamModel> logger)
+        private ILearnerService _learnerService;
+        private List<string> learnerIds;
+        public ExamModel(ILogger<ExamModel> logger, ILearnerService learnerService)
         {
             _logger = logger;
+            _learnerService = learnerService;
         }
 
-        public void OnGet()
+        public void OnGetStart(List<string> learnerIds)
         {
+            this.learnerIds = learnerIds;
         }
     }
 }

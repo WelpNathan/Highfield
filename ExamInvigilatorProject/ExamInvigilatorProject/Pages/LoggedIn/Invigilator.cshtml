@@ -50,34 +50,33 @@
 
 <script>
     function moveLearner(id) {
-        //adds item from left table to right
+        //grabs the two tables
         var table = document.getElementById("myLearners");
-        var name = document.getElementById(id);
-        var cells = name.getElementsByTagName("td");
-        var row = table.insertRow(1);
-        var button = document.createElement("BUTTON");
-        var node = document.createTextNode("remove");
-        button.appendChild(node);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        //var time = cells[1].innerText;
-        //time = Date.parse(time);
-        var test = "a";
-        cell2.parentNode.id = id;
-        //var data = { ids: id, timestamp: time };
-        //console.dir(data);
-        cell1.innerHTML = '<button class="fas fa-arrow-alt-circle-left" type="button" onClick="moveLearnerBack('+id+')"></button>';
-        cell2.innerHTML = cells[0].innerText;
-        cell3.innerHTML = cells[1].innerText;
-        //cell1.innerHTML = <button class="fas fa-arrow-alt-circle-right"></button>;
-        //I don't like javascript...
-
-        //removes item from left side
         var table2 = document.getElementById("activeLearners");
-        var index = name.rowIndex;
-        table2.deleteRow(index);
+        var noRows = table.getElementsByTagName('tr').length;
+        if (noRows < 4) {
+            //adds item from left table to right
+            var name = document.getElementById(id);
+            var cells = name.getElementsByTagName("td");
+            var row = table.insertRow(1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            cell2.parentNode.id = id;
+            cell1.innerHTML = '<button class="fas fa-arrow-alt-circle-left" type="button" onClick="moveLearnerBack(' + id + ')"></button>';
+            cell2.innerHTML = cells[0].innerText;
+            cell3.innerHTML = cells[1].innerText;
 
+            //I don't like javascript...
+
+            //removes item from left side
+
+            var index = name.rowIndex;
+            table2.deleteRow(index);
+        }
+        else {
+            alert("You can only select 4 learners");
+        }
     }
 
 

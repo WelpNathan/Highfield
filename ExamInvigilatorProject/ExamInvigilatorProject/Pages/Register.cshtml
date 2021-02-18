@@ -49,12 +49,18 @@
                 <label for="passwordConfirm"><i class="fas fa-lock"></i></label>
                 <input type="password" name="passwordConfirm" placeholder="Confirm Password" id="passwordConfirm" required>
 
-                @if(Model.success){
-                    <p id="regSuccess">Registration Successful - <a href="/Login">Login</a> </p>
+                @if (ModelState.IsValid)
+                {
+                    <p id="regSuccess">Registration Successful - <a href="/Login">Login</a></p>
+
                 }
-                else{
-                    <p id="regSuccess"> </p>
+                else
+                {
+                    <p id="regSuccess"></p>
                 }
+
+
+
                 <input type="submit" value="Register">
             </form>
 

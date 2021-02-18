@@ -358,6 +358,8 @@ namespace ExamInvigilatorProject
 
                 cnn.Close();
                 return true;
+                //registerSuccess.Style[DisplayNameAttribute = "block"];
+
             }
             catch (SqlException exception)
             {
@@ -365,8 +367,8 @@ namespace ExamInvigilatorProject
                 Console.WriteLine(exception);
                 return false;
             }
+
             
-           
         }
 
         public string getRole(string givenEmail)

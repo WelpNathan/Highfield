@@ -29,8 +29,8 @@
 
                 <label for="surname"><i class="fas fa-user"></i></label>
                 <input type="text" name="surname" placeholder="Surname" id="surname" required>
-                <br><br>
-                <!-- This code below changes the placeholder in the email box depending on wether the email entered has already been used.---> 
+
+                <!-- This code below changes the placeholder in the email box depending on wether the email entered has already been used.--->
                 @if (Model.success)
                 {
                     <label for="email"><i class="fas fa-envelope"></i></label>
@@ -48,6 +48,8 @@
 
                 <label for="passwordConfirm"><i class="fas fa-lock"></i></label>
                 <input type="password" name="passwordConfirm" placeholder="Confirm Password" id="passwordConfirm" required>
+
+                <p>Registration Successful - <a href="/Login">Login</a> </p>
 
                 <input type="submit" value="Register">
 

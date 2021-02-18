@@ -304,15 +304,15 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 20px 8px;
+    padding: 20px 10px;
   }
 
   .register form label {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 54px;
+    height: 54px;
     background-color: #009FE3;
     color: #ffffff;
     margin-left: 15px;
@@ -333,22 +333,13 @@ body {
     height: 50px;
     border: 1px solid #dee0e4;
     margin: 0 15px 20px 0;
-    padding: 0 15px;
+ 
 }
-
-.register #firstName, register #surname {
-    width: 150px;
-    height: 50px;
-    border: 1px solid #dee0e4;
-    margin: 0 15px 20px 0;
-    padding: 0 15px;
-}
-
 
 
 .register form input[type="email"]{
-    width: 350px;
-    height: 50px;
+    width: 365px;
+    height: 52px;
     border: 1px solid #dee0e4;
     margin: 0 15px 20px 0;
     padding: 0 15px;
@@ -371,14 +362,21 @@ body {
     transition: background-color 0.2s;
   }
 
-  /* /////////////////////////////////////// Learner Tables ///////////////////////*/
+  .register form p{
+      text-align: center;
+      color: #5C2483;
+      font-weight: bold;
 
-.tableSection1, .tableSection2 {
-    float: left;
-    width: 40%;
-    margin: 20px;
-    padding: 16px;
-}
+  }
+
+
+    /* /////////////////////////////////////// Learner Tables ///////////////////////*/
+    .tableSection1, .tableSection2 {
+        float: left;
+        width: 40%;
+        margin: 20px;
+        padding: 16px;
+    }
 
 .tableSection2 p{
     padding: 8px;

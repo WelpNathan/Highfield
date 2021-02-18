@@ -30,6 +30,7 @@
             <tr>
                 <th>Remove</th>
                 <th>Student Name</th>
+                <th>Time Logged In</th>
             </tr>
         </table>
         <!-- Arrows: on click - set specific array value to 0. -->
@@ -53,16 +54,23 @@
         var name = document.getElementById(id);
         var cells = name.getElementsByTagName("td");
         var row = table.insertRow(1);
-        var button = document.createElement("BUTTON")
-        var node = document.createTextNode("remove")
+        var button = document.createElement("BUTTON");
+        var node = document.createTextNode("remove");
         button.appendChild(node);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
-        var time = cells[1].innerText;
-        cell2.id = id;
-        cell1.innerHTML = '<button class="fas fa-arrow-alt-circle-left" type="button" onClick="moveLearnerBack('+ id +', '+ String(time) +')">';
+        var cell3 = row.insertCell(2);
+        //var time = cells[1].innerText;
+        //time = Date.parse(time);
+        var test = "a";
+        cell2.parentNode.id = id;
+        //var data = { ids: id, timestamp: time };
+        //console.dir(data);
+        cell1.innerHTML = '<button class="fas fa-arrow-alt-circle-left" type="button" onClick="moveLearnerBack('+id+')"></button>';
         cell2.innerHTML = cells[0].innerText;
+        cell3.innerHTML = cells[1].innerText;
         //cell1.innerHTML = <button class="fas fa-arrow-alt-circle-right"></button>;
+        //I don't like javascript...
 
         //removes item from left side
         var table2 = document.getElementById("activeLearners");
@@ -73,19 +81,23 @@
 
 
 
-    function moveLearnerBack(id, row) {
-        var table = document.getElementById("myLearners");
+    function moveLearnerBack(id) {
+        var table = document.getElementById("activeLearners");
         var name = document.getElementById(id);
         var cells = name.getElementsByTagName("td");
         var row = table.insertRow(1);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
+        cell1.innerHTML = cells[1].innerHTML;
+        cell1.parentNode.id = id;
+        cell3.innerHTML = '<button class="fas fa-arrow-alt-circle-right" type="button" onClick="moveLearner(' + id + ')"></button>';
+        cell2.innerHTML = cells[2].innerText;
 
 
 
-
+        var table2 = document.getElementById("myLearners");
         var index = name.rowIndex;
-        table.deleteRow(index);
+        table2.deleteRow(index);
     }
 </script>

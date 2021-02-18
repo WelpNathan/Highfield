@@ -70,9 +70,6 @@ function learnerReady() {
     document.getElementById("readyOverlay").style.display = "block";
 }
 
-// open exam page
-
-
 
 
 

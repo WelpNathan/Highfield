@@ -16,9 +16,8 @@
             <h1>@ViewData["Title"]</h1>
 
             <div class="login">
-                <h1>I have forgotten my password</h1>
                 <form asp-page-handler="login" method="post" autocomplete="off">
-
+                    <p>If your email is registered, you will be sent an email resetting your password</p>
                     <label for="forgotEmail"><i class="fas fa-envelope"></i></label>
                     <input type="email" name="forgotEmail" placeholder="What's your email?">
 

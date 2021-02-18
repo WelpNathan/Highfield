@@ -358,7 +358,7 @@ namespace ExamInvigilatorProject
 
                 cnn.Close();
                 return true;
-                //registerSuccess.Style[DisplayNameAttribute = "block"];
+
 
             }
             catch (SqlException exception)

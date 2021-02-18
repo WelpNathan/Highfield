@@ -362,12 +362,11 @@ body {
     transition: background-color 0.2s;
   }
 
-  .register form p{
-      text-align: center;
-      color: #5C2483;
-      font-weight: bold;
-
-  }
+    .register form p, #regSuccess {
+        text-align: center;
+        color: #5C2483;
+        font-weight: bold;
+    }
 
 
     /* /////////////////////////////////////// Learner Tables ///////////////////////*/

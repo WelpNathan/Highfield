@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace ExamInvigilatorProject.Pages
 {
@@ -12,7 +13,7 @@ namespace ExamInvigilatorProject.Pages
     {
         private readonly ILogger<ExamModel> _logger;
         private ILearnerService _learnerService;
-        private List<string> learnerIds;
+        public List<string> learnerIds;
         private string invigId;
         public dbEdit editor = new dbEdit();
         public ExamModel(ILogger<ExamModel> logger, ILearnerService learnerService)
@@ -27,12 +28,20 @@ namespace ExamInvigilatorProject.Pages
             learnerIds.RemoveAt(0);
             this.learnerIds = learnerIds;
 
-            foreach (var learner in this.learnerIds)
-            {
-                editor.addToExam(Guid.Parse(invigId), Guid.Parse(learner));
-            }
+            
             
 
+        }
+
+        public void OnGetStartExam(string ids)
+        {
+            List<string> result = JsonConvert.DeserializeObject<List<string>>(ids);
+
+            foreach (var learner in result)
+            {
+                editor.addToExam(Guid.Parse(invigId), Guid.Parse(learner));
+                editor.removeFromSession(Guid.Parse(learner));
+            }
         }
     }
 }

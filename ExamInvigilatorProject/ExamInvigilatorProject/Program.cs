@@ -535,11 +535,11 @@ namespace ExamInvigilatorProject
         {
             cnn.Open();
 
-            string register = "INSERT INTO dbo.tblExams(Id, InvigilatorId, CandidateId, Date, noteId) VALUES(@Id, @InvigilatorId, @CandidateId, @Date, @noteId)";
+            string exam = "INSERT INTO dbo.tblExams(Id, InvigilatorId, CandidateId, Date, noteId) VALUES(@Id, @InvigilatorId, @CandidateId, @Date, @noteId)";
             DateTime time = DateTime.Now;
             Guid noteId = Guid.NewGuid();
             Guid examId = Guid.NewGuid();
-            using (SqlCommand cmd = new SqlCommand(register, cnn))
+            using (SqlCommand cmd = new SqlCommand(exam, cnn))
             {
                 // Prepare and Bind Parameters
                 cmd.Prepare();
@@ -553,8 +553,18 @@ namespace ExamInvigilatorProject
             cnn.Close();
         }
 
+        public void removeFromSession(Guid? id)
+        {
+            cnn.Open();
 
-        
+            string delete = "DELETE FROM dbo.tblLoginSessions WHERE AccountId = @Id";
+            using (SqlCommand cmd = new SqlCommand(delete, cnn))
+            {
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@Id", id);
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }
 

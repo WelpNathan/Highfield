@@ -522,20 +522,15 @@ table{
 #notesOverlay {
     position: fixed; /* Sit on top of the page content */
     display: none; /* Hidden by default */
-    width: 100%; /* Full width (cover the whole page) */
+    width: 60%; /* Full width (cover the whole page) */
     height: 90%; /* Full height (cover the whole page) */
-    top: 0;
-    left: 0;
+    top: 150px;
+    left: 300px;
     right: 0;
     bottom: 0;
     background-color: #ffffff;
+    border: solid #353434 2px;
 }
-
-    #notesOverlay h1, #notesOverlay i {
-        width: 30px;
-        height: 30px;
-        float: left;
-    }
 
   .notesForm {
     width: 520px;

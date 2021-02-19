@@ -75,12 +75,12 @@ function learnerReady() {
 
 // notes overlay
 function notesOn() {
-    document.getElementById("overlay").style.display = "block";
-    window.open("Notes", "_blank")
+    document.getElementById("notesOverlay").style.display = "block";
+    
 }
 
 function notesOff() {
-  document.getElementById("overlay").style.display = "none";
+  document.getElementById("notesOverlay").style.display = "none";
 }
 
 

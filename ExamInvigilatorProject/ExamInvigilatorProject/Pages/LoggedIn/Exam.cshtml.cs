@@ -13,7 +13,8 @@ namespace ExamInvigilatorProject.Pages
         private readonly ILogger<ExamModel> _logger;
         private ILearnerService _learnerService;
         private List<string> learnerIds;
-        string invigId;
+        private string invigId;
+        public dbEdit editor;
         public ExamModel(ILogger<ExamModel> logger, ILearnerService learnerService)
         {
             _logger = logger;
@@ -25,6 +26,13 @@ namespace ExamInvigilatorProject.Pages
             this.invigId = learnerIds[0];
             learnerIds.RemoveAt(0);
             this.learnerIds = learnerIds;
+            Guid? exam = new Guid();
+
+            foreach (var learner in this.learnerIds)
+            {
+                editor.addToExam(Guid.Parse(invigId), Guid.Parse(learner), exam);
+            }
+            
 
         }
     }

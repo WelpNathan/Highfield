@@ -51,10 +51,7 @@ namespace ExamInvigilatorProject.Pages
         public RedirectToPageResult OnPostSelected(string ids)
         {
             List<string> result = JsonConvert.DeserializeObject<List<string>>(ids);
-
-
             //First item in result is the invigilators id.
-            //result.Insert(0, currentUserId.ToString());
 
             return RedirectToPage("Exam", "Start", new {learnerIds = result});
         }

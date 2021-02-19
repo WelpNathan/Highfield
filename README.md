@@ -15,6 +15,8 @@ This repository hosts:
 - Github action for continuous delivery
 - Images including Highfield Qualification Logo's (all rights reserved)
 
+Project planning was done under `Trello`. You can access the trello board we used [here](https://trello.com/b/MVJRNkQO/exam-invigilator-project).
+
 ## Quickstart
 This application was made using `Visual Studio 2019` but we have found no issues running this in other programs such as `Rider`.
 

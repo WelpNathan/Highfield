@@ -106,28 +106,35 @@
         //gets all the table rows Ids, these correlate to a learnersId in the database
         var table = document.getElementById("myLearners");
         var tempIds = table.getElementsByTagName("tr");
-        var ids = [];
-        ids.push('@Model.currentUserId');
-        for (var i = 1; i < tempIds.length; i++) {
-            ids.push(tempIds[i].id)
+
+        if (tempIds.length < 2) {
+            alert("You need to select at least one learner")
         }
+        else {
 
-        var myJSON = JSON.stringify(ids);
-
-        //calls the Selected handler
-        $.ajax({
-            type: 'POST',
-            contentType: 'application/x-www-form-urlencoded',
-            url: "/LoggedIn/Invigilator?handler=Selected",
-            data: {ids : myJSON},
-            headers: {
-                RequestVerificationToken: gettoken()
-            },
-            success: function () {
-                //if the request is successful it passes the data to the exam page then opens it.
-                window.open("exam", '_self');
+            var ids = [];
+            ids.push('@Model.currentUserId');
+            for (var i = 1; i < tempIds.length; i++) {
+                ids.push(tempIds[i].id)
             }
-        })
+
+            var myJSON = JSON.stringify(ids);
+
+            //calls the Selected handler
+            $.ajax({
+                type: 'POST',
+                contentType: 'application/x-www-form-urlencoded',
+                url: "/LoggedIn/Invigilator?handler=Selected",
+                data: { ids: myJSON },
+                headers: {
+                    RequestVerificationToken: gettoken()
+                },
+                success: function () {
+                    //if the request is successful it passes the data to the exam page then opens it.
+                    window.open("exam", '_self');
+                }
+            })
+        }
 
         
     }

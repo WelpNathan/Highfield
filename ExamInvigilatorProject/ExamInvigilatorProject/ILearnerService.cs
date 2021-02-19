@@ -8,15 +8,12 @@ namespace ExamInvigilatorProject
     public interface ILearnerService
     {
         List<Learner> GetAll();
-        void AddSelectedLearner(Guid id);
-
     }
     
     public class LearnerService : ILearnerService
     {
         List<Guid> ids = new List<Guid>();
         List<Guid> cookies = new List<Guid>();
-        List<Guid> selectedLearnerIds = new List<Guid>();
         private dbEdit editor = new dbEdit();
 
         
@@ -40,10 +37,6 @@ namespace ExamInvigilatorProject
            
         }
 
-        public void AddSelectedLearner(Guid id)
-        {
-            this.selectedLearnerIds.Add(id);
-        }
 
     }
 }

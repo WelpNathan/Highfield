@@ -31,38 +31,13 @@ namespace ExamInvigilatorProject
                 rng.GetBytes(salt);
             }
 
-
-            // Response.Redirect(String.Format("YourTargetPage.cshtml?YourValue={0}", yourValueToPass));
-
             string connetionString;
             SqlConnection cnn;
             connetionString = "Server = localhost; Database = exam_db; User Id = SA; Password = strong!123";
             cnn = new SqlConnection(connetionString);
             cnn.Open();         // need error message for exceptions - e.g. if connection can't be made load error page
 
-            //string delete = "DELETE FROM dbo.tblLogins;";
-          /*  string register = "INSERT INTO dbo.tblLogins(Id, Email, FirstName, LastName, PasswordHash, PasswordSalt) VALUES(@Id, @email, @FirstName, @LastName, @PasswordHash, @PasswordSalt)";
-
-
-            SqlCommand deleteTable = new SqlCommand(delete, cnn);
-
-            deleteTable.ExecuteNonQuery();
-
-            Guid guid = Guid.NewGuid();
-
-
-            using (SqlCommand cmd = new SqlCommand(register, cnn))
-            {
-                // Create and set the parameters values 
-                cmd.Parameters.AddWithValue("@Id", guid);
-                cmd.Parameters.AddWithValue("@Email", "hello@hello.com");
-                cmd.Parameters.AddWithValue("@FirstName", "hello");
-                cmd.Parameters.AddWithValue("@LastName", "hello");
-                cmd.Parameters.AddWithValue("@PasswordHash", edit.hashPassword("hello", salt));
-                cmd.Parameters.AddWithValue("@PasswordSalt", Convert.ToBase64String(salt));
-
-                cmd.ExecuteNonQuery();
-            }*/
+            
             CreateHostBuilder(args).Build().Run();
 
         }
@@ -75,21 +50,7 @@ namespace ExamInvigilatorProject
                     webBuilder.UseStartup<Startup>();
                 });
 
-
-
-
-
-
-        public void getEmail(string givenEmail, SqlConnection cnn)
-        {
-
-            string login = "SELECT * from dbo.tblLogins WHERE Email=@givenEmail";
-            using (SqlCommand email = new SqlCommand(login, cnn))
-            {
-                email.Parameters.AddWithValue("@givenEmail", givenEmail);
-            }
-
-        }
+       
     }
 
 
@@ -101,6 +62,7 @@ namespace ExamInvigilatorProject
 
         public object Response { get; private set; }
 
+        //code to add a note to a page
         public void AddNewNote(string examId, string notes)
         {
             cnn.Open();
@@ -114,7 +76,7 @@ namespace ExamInvigilatorProject
             cnn.Close();
         }
 
-
+        //Gets a users Id with a given session cookie.
         public Guid? GetUserIdFromCookie(string cookieAuthCode)
         {
             cnn.Open();
@@ -180,8 +142,10 @@ namespace ExamInvigilatorProject
 
             // add cookie
             Console.WriteLine("hi: " + cookieAuthCode.ToString());
-            response.Cookies.Append("HIGHFIELD_AUTH", cookieAuthCode.ToString(), option);        }
+            response.Cookies.Append("HIGHFIELD_AUTH", cookieAuthCode.ToString(), option);       
+        }
 
+        //get a users Id from a given email
         public Guid? GetIdFromEmail(string email)
         {
             cnn.Open();
@@ -202,6 +166,7 @@ namespace ExamInvigilatorProject
             return null;
         }
 
+        //sets a learner to ready inside the db
         public void SetLearnerReady(Guid id, bool isReady)
         {
             cnn.Open();
@@ -221,6 +186,7 @@ namespace ExamInvigilatorProject
             cnn.Close();
         }
 
+        //checks if an email exists inside the db, if it does true is returned, if not false is returned
         public bool checkEmail(string givenEmail)
         {
             cnn.Open();
@@ -247,7 +213,7 @@ namespace ExamInvigilatorProject
         }
 
 
-
+        //returns the passwordHash from a given Email.
         public string getPasswordHash(string givenEmail)
         {
             cnn.Open();
@@ -270,7 +236,7 @@ namespace ExamInvigilatorProject
             return hash;
         }
 
-
+        //returns the passwordSalt from a given email.
         public byte[] getPasswordSalt(string givenEmail)
         {
             cnn.Open();
@@ -322,7 +288,7 @@ namespace ExamInvigilatorProject
             return hashed;
         }
 
-
+        //registers a user into the system.
         public bool register(string email, string firstName, string LastName, string password, byte[] salt, string role)
         {
             try
@@ -405,41 +371,6 @@ namespace ExamInvigilatorProject
 
 
         }
-
-        /*public void logLogin(string givenEmail)
-        {
-            cnn.Open();
-            string id = "";
-            string sql = "SELECT Id FROM dbo.tblLogins WHERE Email = @givenEmail";
-            using (SqlCommand cmd = new SqlCommand(sql, cnn))
-            {
-                cmd.Parameters.AddWithValue("@givenEmail", givenEmail);
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        id = reader["Id"].ToString();
-
-                    }
-
-                }
-            }
-            DateTime time = DateTime.Now;
-            Guid guid = Guid.Empty;
-            guid = new Guid(id);
-
-            string sqlFormattedDate = time.ToString("yyyy-MM-dd HH:mm:ss.fff");
-
-            sql = "INSERT INTO dbo.tblLoginSessions(AccountId, Date) VALUES(@AccountId, @Date)";
-            using (SqlCommand cmd = new SqlCommand(sql, cnn))
-            {
-                cmd.Parameters.AddWithValue("@AccountId", guid);
-                cmd.Parameters.AddWithValue("@Date", time);
-                cmd.ExecuteNonQuery();
-            }
-            cnn.Close();
-        }*/
-
 
 
         public string[] getName(Guid? guid)
@@ -531,6 +462,7 @@ namespace ExamInvigilatorProject
             return date;
         }
 
+        //adds a user to the exam table
         public void addToExam(Guid? invigId, Guid? learnerId)
         {
             cnn.Open();
@@ -553,6 +485,7 @@ namespace ExamInvigilatorProject
             cnn.Close();
         }
 
+        //removes a user from the sessions table, call when adding to the exam table.
         public void removeFromSession(Guid? id)
         {
             cnn.Open();

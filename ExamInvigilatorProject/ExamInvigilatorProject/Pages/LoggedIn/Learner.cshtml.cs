@@ -19,11 +19,6 @@ namespace ExamInvigilatorProject.Pages
             _logger = logger;
         }
 
-        public void OnGet()
-        {
-
-        }
-
         public void OnPostButton()
         {
             _logger.LogInformation("Setting learner ready status to yes.");
@@ -37,11 +32,6 @@ namespace ExamInvigilatorProject.Pages
 
             _logger.LogInformation($"Setting user Id {userId}'s status to ready.");
             dbEdit.SetLearnerReady(userId.Value, true);
-
-        }
-
-        public void OnPost()
-        {
 
         }
 

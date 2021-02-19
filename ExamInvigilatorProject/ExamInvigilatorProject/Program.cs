@@ -564,6 +564,7 @@ namespace ExamInvigilatorProject
                 cmd.Parameters.AddWithValue("@Id", id);
                 cmd.ExecuteNonQuery();
             }
+            cnn.Close();
         }
     }
 }

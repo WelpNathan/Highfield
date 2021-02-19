@@ -19,7 +19,7 @@ namespace ExamInvigilatorProject.Pages
         public dbEdit editor = new dbEdit();
         public List<Guid> sessions;
         public List<Guid> ids;
-        private Guid currentUserId;
+        public Guid currentUserId;
         public string[] currentUserName;
 
         public List<learner> chosenLearners;
@@ -52,11 +52,9 @@ namespace ExamInvigilatorProject.Pages
         {
             List<string> result = JsonConvert.DeserializeObject<List<string>>(ids);
 
-            /*  foreach (var id in result)
-              {
-                  Guid temp = Guid.Parse(id);
-                  _learnerService.AddSelectedLearner(temp);
-              }*/
+
+            //First item in result is the invigilators id.
+            //result.Insert(0, currentUserId.ToString());
 
             return RedirectToPage("Exam", "Start", new {learnerIds = result});
         }
@@ -64,7 +62,7 @@ namespace ExamInvigilatorProject.Pages
 
         public void OnGetStart(Guid id)
         {
-            this.currentUserId = id;
+            currentUserId = id;
             currentUserName = editor.getName(currentUserId);
         }
         

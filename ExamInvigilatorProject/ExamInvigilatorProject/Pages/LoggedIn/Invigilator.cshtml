@@ -104,6 +104,7 @@
         var table = document.getElementById("myLearners");
         var tempIds = table.getElementsByTagName("tr");
         var ids = [];
+        ids.push('@Model.currentUserId');
         for (var i = 1; i < tempIds.length; i++) {
             ids.push(tempIds[i].id)
         }

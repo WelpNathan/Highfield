@@ -13,6 +13,7 @@ namespace ExamInvigilatorProject.Pages
         private readonly ILogger<ExamModel> _logger;
         private ILearnerService _learnerService;
         private List<string> learnerIds;
+        string invigId;
         public ExamModel(ILogger<ExamModel> logger, ILearnerService learnerService)
         {
             _logger = logger;
@@ -21,7 +22,10 @@ namespace ExamInvigilatorProject.Pages
 
         public void OnGetStart(List<string> learnerIds)
         {
+            this.invigId = learnerIds[0];
+            learnerIds.RemoveAt(0);
             this.learnerIds = learnerIds;
+
         }
     }
 }

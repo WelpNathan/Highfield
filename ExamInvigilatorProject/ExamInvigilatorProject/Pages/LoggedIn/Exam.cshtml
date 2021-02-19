@@ -42,7 +42,7 @@
 
             <!-------------------------------------------------- Buttons -------------------------------------------------------->
             <div class="actionBtn">
-                <button class="startBtn">Start Exam</button>
+                <button class="startBtn" onclick="startExam()">Start Exam</button>
 
                 <button class="endBtn">End Exam </button> <!-- only shown if exam has started, otherwise show start button -->
             </div>
@@ -99,4 +99,38 @@
 
         </div>
 
+
+
+
+
+
+
 </body>
+
+
+<script>
+
+    function startExam() {
+
+        var myJSON = JSON.stringify(ids);
+
+        $.ajax({
+            type: 'GET',
+            contentType: 'application/x-www-form-urlencoded',
+            url: "/LoggedIn/Exam?handler=StartExam",
+            data: { ids: myJSON },
+            headers: {
+                RequestVerificationToken: gettoken()
+            },
+            success: function () {
+                //window.open("exam", '_self');
+            }
+        })
+    }
+
+    function gettoken() {
+        var token = '@Html.AntiForgeryToken()';
+        token = $(token).val();
+        return token;
+   }
+</script>

@@ -42,7 +42,7 @@
 
             <!-------------------------------------------------- Buttons -------------------------------------------------------->
             <div class="actionBtn">
-                <button class="startBtn" onclick="startExam('@Model.learnerIds')">Start Exam</button>
+                <button class="startBtn" onclick="startExam()">Start Exam</button>
 
                 <button class="endBtn">End Exam </button> <!-- only shown if exam has started, otherwise show start button -->
             </div>
@@ -110,7 +110,7 @@
 
 <script>
 
-    function startExam(ids) {
+    function startExam() {
 
         var myJSON = JSON.stringify(ids);
 

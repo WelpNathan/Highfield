@@ -27,21 +27,18 @@ namespace ExamInvigilatorProject.Pages
             this.invigId = learnerIds[0];
             learnerIds.RemoveAt(0);
             this.learnerIds = learnerIds;
-
-            
-            
-
+            foreach (var learner in learnerIds)
+            {
+                editor.addToExam(Guid.Parse(invigId), Guid.Parse(learner));
+                editor.removeFromSession(Guid.Parse(learner));
+            }
         }
 
         public void OnGetStartExam(string ids)
         {
             List<string> result = JsonConvert.DeserializeObject<List<string>>(ids);
 
-            foreach (var learner in result)
-            {
-                editor.addToExam(Guid.Parse(invigId), Guid.Parse(learner));
-                editor.removeFromSession(Guid.Parse(learner));
-            }
+            
         }
     }
 }

@@ -42,7 +42,7 @@
 
             <!-------------------------------------------------- Buttons -------------------------------------------------------->
             <div class="actionBtn">
-                <button class="startBtn" onclick="startExam()">Start Exam</button>
+                <button class="startBtn">Start Exam</button>
 
                 <button class="endBtn">End Exam </button> <!-- only shown if exam has started, otherwise show start button -->
             </div>
@@ -57,7 +57,7 @@
             </div>
             <div class="rightPanelOptions">
                 <div class="rightPanelOptionItems">
-                    <button onclick="notesOn()" class="addNotes">Add Notes</button> <!-- If no notes exist yet, show add notes button -->
+                    <button class="addNotes" onclick="notesOn">Add Notes</button> <!-- If no notes exist yet, show add notes button -->
 
                     <button class="editNotes">Edit Notes</button>   <!-- This button will need to be  coded so that if a notes record already exists, edit is shown instead of add: change css display: none etc.-->
                 </div>
@@ -78,21 +78,30 @@
 
         </div>
 
-            <!-- notes page will load as overlay when clicked-->
-            <div id="notesOverlay">
-                <h1>Notes</h1>
-                    <hr>
-                <form>
-                    <textarea name="notesText" placeholder="Type Notes here" wrap="hard"></textarea>
+        <!--<div class="notesOverlay">
+         notes page will load as overlay when clicked
+        <div class="notesForm">
+        <h1>Notes</h1>
+            <hr>
+        <form>
+            <textarea name="notesText" placeholder="Type Notes here" wrap="hard"></textarea>
 
-                    <div class="addFiles"><input type="file"></div>
+            <div class="addFiles"><input type="file"></div>
 
-                    <div id="notesMessage"><p>Notes Saved</p></div>
+            <div id="notesMessage"><p>Notes Saved</p></div>
 
-                    <input type="submit" value="Save">
-                    <button onclick="notesOdd()" id="exitNotes">Exit</button>
-                </form>
-            </div>
+            <input type="submit" value="Save">
+            <button onclick="notesOdd()" id="exitNotes">Exit</button>
+        </form>
+    </div>-->
+
+
+
+   </div>
+
+
+
+
 
 
 
@@ -101,27 +110,5 @@
 
 <script>
 
-    function startExam() {
-
-        var myJSON = JSON.stringify(ids);
-
-        $.ajax({
-            type: 'GET',
-            contentType: 'application/x-www-form-urlencoded',
-            url: "/LoggedIn/Exam?handler=StartExam",
-            data: { ids: myJSON },
-            headers: {
-                RequestVerificationToken: gettoken()
-            },
-            success: function () {
-                //window.open("exam", '_self');
-            }
-        })
-    }
-
-    function gettoken() {
-        var token = '@Html.AntiForgeryToken()';
-        token = $(token).val();
-        return token;
-   }
+        
 </script>

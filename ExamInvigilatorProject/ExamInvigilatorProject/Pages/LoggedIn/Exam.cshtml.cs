@@ -34,11 +34,5 @@ namespace ExamInvigilatorProject.Pages
             }
         }
 
-        public void OnGetStartExam(string ids)
-        {
-            List<string> result = JsonConvert.DeserializeObject<List<string>>(ids);
-
-            
-        }
     }
 }

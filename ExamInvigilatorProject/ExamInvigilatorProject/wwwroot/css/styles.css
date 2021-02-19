@@ -531,7 +531,7 @@ table{
     background-color: #ffffff;
 }
 
-    #notesOverlay h1, #notesOverlay i, {
+    #notesOverlay h1, #notesOverlay i {
         width: 30px;
         height: 30px;
         float: left;

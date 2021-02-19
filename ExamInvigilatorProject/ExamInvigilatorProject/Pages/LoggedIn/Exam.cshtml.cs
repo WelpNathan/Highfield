@@ -11,14 +11,28 @@ namespace ExamInvigilatorProject.Pages
     public class ExamModel : PageModel
     {
         private readonly ILogger<ExamModel> _logger;
-
-        public ExamModel(ILogger<ExamModel> logger)
+        private ILearnerService _learnerService;
+        private List<string> learnerIds;
+        private string invigId;
+        public dbEdit editor = new dbEdit();
+        public ExamModel(ILogger<ExamModel> logger, ILearnerService learnerService)
         {
             _logger = logger;
+            _learnerService = learnerService;
         }
 
-        public void OnGet()
+        public void OnGetStart(List<string> learnerIds)
         {
+            this.invigId = learnerIds[0];
+            learnerIds.RemoveAt(0);
+            this.learnerIds = learnerIds;
+
+            foreach (var learner in this.learnerIds)
+            {
+                editor.addToExam(Guid.Parse(invigId), Guid.Parse(learner));
+            }
+            
+
         }
     }
 }

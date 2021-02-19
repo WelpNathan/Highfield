@@ -30,7 +30,7 @@ namespace ExamInvigilatorProject.Pages
 
         }
 
-        public void OnPostLogin()
+        public RedirectToPageResult OnPostLogin()
         {
             dbEdit editor = new dbEdit();
 
@@ -59,12 +59,14 @@ namespace ExamInvigilatorProject.Pages
 
                     if (role == "INVIGILATOR")
                     {
-                        Response.Redirect("LoggedIn/Invigilator");
+                        return RedirectToPage("LoggedIn/Invigilator", "Start", new {id = editor.GetIdFromEmail(emailAddress)});
+                        //Response.Redirect("LoggedIn/Invigilator");
                     }
                     else
                     {
                         //editor.logLogin(emailAddress);
-                        Response.Redirect("LoggedIn/Learner");
+                        return RedirectToPage("LoggedIn/Learner", "Start", new { id = editor.GetIdFromEmail(emailAddress) });
+                        //Response.Redirect("LoggedIn/Learner");
                         //Student redirect.
                     }
                 }
@@ -78,6 +80,7 @@ namespace ExamInvigilatorProject.Pages
             }
             attempts += 1;
 
+            return RedirectToPage();
         }
 
 

@@ -19,6 +19,8 @@ namespace ExamInvigilatorProject.Pages
         public dbEdit editor = new dbEdit();
         public List<Guid> sessions;
         public List<Guid> ids;
+        public Guid currentUserId;
+        public string[] currentUserName;
 
         public List<learner> chosenLearners;
         public bool firstLoad = true;
@@ -46,12 +48,20 @@ namespace ExamInvigilatorProject.Pages
             return Partial("_PartialTable", learners);
         }
 
-        public void OnPostSelected(string ids)
+        public RedirectToPageResult OnPostSelected(string ids)
         {
             List<string> result = JsonConvert.DeserializeObject<List<string>>(ids);
-            Response.Redirect("learner", false);
+            //First item in result is the invigilators id.
+
+            return RedirectToPage("Exam", "Start", new {learnerIds = result});
         }
        
+
+        public void OnGetStart(Guid id)
+        {
+            currentUserId = id;
+            currentUserName = editor.getName(currentUserId);
+        }
         
     }
 }

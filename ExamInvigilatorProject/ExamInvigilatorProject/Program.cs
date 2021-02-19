@@ -531,7 +531,29 @@ namespace ExamInvigilatorProject
             return date;
         }
 
-      
+        public void addToExam(Guid? invigId, Guid? learnerId)
+        {
+            cnn.Open();
+
+            string register = "INSERT INTO dbo.tblExams(Id, InvigilatorId, CandidateId, Date, noteId) VALUES(@Id, @InvigilatorId, @CandidateId, @Date, @noteId)";
+            DateTime time = DateTime.Now;
+            Guid noteId = Guid.NewGuid();
+            Guid examId = Guid.NewGuid();
+            using (SqlCommand cmd = new SqlCommand(register, cnn))
+            {
+                // Prepare and Bind Parameters
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@Id", examId);
+                cmd.Parameters.AddWithValue("@InvigilatorId", invigId);
+                cmd.Parameters.AddWithValue("@CandidateId", learnerId);
+                cmd.Parameters.AddWithValue("@Date", time);
+                cmd.Parameters.AddWithValue("@noteId", noteId);
+                cmd.ExecuteNonQuery();
+            }
+            cnn.Close();
+        }
+
+
         
     }
 }

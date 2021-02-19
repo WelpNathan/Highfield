@@ -2,7 +2,7 @@
 @model InvigilatorModel
 @{
     ViewData["Title"] = "Logged In - Invigilator";
-    ViewData["firstName"] = "Name"; //pull name from Db from logged in user
+    ViewData["firstName"] = Model.currentUserName[0] + ' ' + Model.currentUserName[1]; //pull name from Db from logged in user
 
 }
 
@@ -37,10 +37,8 @@
             <!-- Arrows: on click - set specific array value to 0. -->
         </div>
 
-        <div class="actionBtn">
-            <form method="post">
-                <button class="startBtn">Start Invigilation</button>
-            </form>
+        <div class="actionBtn">    
+            <button class="startBtn" onclick="startInvig()">Start Invigilation</button>
         </div>         
 
 
@@ -106,6 +104,7 @@
         var table = document.getElementById("myLearners");
         var tempIds = table.getElementsByTagName("tr");
         var ids = [];
+        ids.push('@Model.currentUserId');
         for (var i = 1; i < tempIds.length; i++) {
             ids.push(tempIds[i].id)
         }
@@ -119,8 +118,13 @@
             data: {ids : myJSON},
             headers: {
                 RequestVerificationToken: gettoken()
+            },
+            success: function () {
+                window.open("exam", '_self');
             }
         })
+        //sleep(100);
+        
     }
 
     function gettoken() {
@@ -130,7 +134,13 @@
    }
 
 
-
+    function sleep(milliseconds) {
+        const date = Date.now();
+        let currentDate = null;
+        do {
+            currentDate = Date.now();
+        } while (currentDate - date < milliseconds);
+    }
 
 
 

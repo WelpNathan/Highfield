@@ -75,7 +75,8 @@ function learnerReady() {
 
 // notes overlay
 function notesOn() {
-  document.getElementById("overlay").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
+    window.open("Notes", "_blank")
 }
 
 function notesOff() {

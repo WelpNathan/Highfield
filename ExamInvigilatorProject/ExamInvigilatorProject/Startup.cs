@@ -42,7 +42,7 @@ namespace ExamInvigilatorProject
                 .AddRazorPagesOptions(options =>
                 {
                     //lock down LoggedIn Folder to non authorised users.
-                    options.Conventions.AuthorizeFolder("/LoggedIn");
+                    //options.Conventions.AuthorizeFolder("/LoggedIn");
                 });
 
             services.Configure<ForwardedHeadersOptions>(options =>
